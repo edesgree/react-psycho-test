@@ -1,16 +1,16 @@
-import React from 'react';
-
 interface IntroProps {
   start: () => void;
-  test: number;
+  testt: boolean;
 }
-export default function Intro(props: IntroProps): JSX.Element {
+const Intro = (props: IntroProps): JSX.Element => {
   return (
     <div>
       <p>Let's play a random trivia!</p>
       <button className="primary" onClick={props.start}>
-        Start Quiz {props.test}
+        Start Quiz {props.testt}
       </button>
     </div>
   );
-}
+};
+
+export default Intro;

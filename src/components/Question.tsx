@@ -6,10 +6,10 @@ interface QuestionProps {
   id: string;
   question: string;
   correct_answer: string;
-  user_choice: string;
+  user_choice: string | null;
   all_answers: string[];
   quiz_completed: boolean;
-  updateUserChoic: (id: string, choice: string) => void;
+  updateUserChoice: (id: string, choice: string) => void;
 }
 const Question: React.FC<QuestionProps> = (props) => {
   const [choice, setChoice] = React.useState('');
@@ -19,7 +19,8 @@ const Question: React.FC<QuestionProps> = (props) => {
     event.preventDefault();
     // click allowed if quiz is completed (check answers button clicked)
     if (!props.quiz_completed) {
-      setChoice(event.target.value);
+      const target = event.target as HTMLButtonElement;
+      setChoice(target.value);
     }
   }
 
@@ -30,8 +31,8 @@ const Question: React.FC<QuestionProps> = (props) => {
 
   const answersElements = props.all_answers?.map((answer) => {
     // assign correct css style to button
-    function getButtonStyle(): string | null {
-      let style = null;
+    function getButtonStyle(): string {
+      let style = '';
       if (!props.quiz_completed) {
         if (answer === choice) {
           style = 'active';
