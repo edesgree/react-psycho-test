@@ -14,7 +14,7 @@ function App() {
         <h1>Quizzy</h1>
       </header>
       {!gameStart && <Intro testt={33} start={startGame} />}
-      {gameStart && <Quiz start={startGame} />}
+      {gameStart && <Quiz />}
     </main>
   );
 }

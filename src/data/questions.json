@@ -1,0 +1,82 @@
+[
+  {
+    "category": "Entertainment: Books",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "hello What was the name of Captain Nemo&#039;s submarine in &quot;20,000 Leagues Under the Sea&quot;?",
+    "correct_answer": "The Nautilus",
+    "incorrect_answers": ["The Neptune", "The Poseidon  ", "The Atlantis"]
+  },
+  {
+    "category": "Geography",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "All of the following countries have official claims to territory in Antartica EXCEPT:",
+    "correct_answer": "United States",
+    "incorrect_answers": ["Australia", "Chile", "Norway"]
+  },
+  {
+    "category": "History",
+    "type": "boolean",
+    "difficulty": "easy",
+    "question": "The United States Department of Homeland Security was formed in response to the September 11th attacks.",
+    "correct_answer": "True",
+    "incorrect_answers": ["False"]
+  },
+  {
+    "category": "Entertainment: Film",
+    "type": "boolean",
+    "difficulty": "easy",
+    "question": "Shaquille O&#039;Neal appeared in the 1997 film &quot;Space Jam&quot;.",
+    "correct_answer": "False",
+    "incorrect_answers": ["True"]
+  },
+  {
+    "category": "History",
+    "type": "multiple",
+    "difficulty": "hard",
+    "question": "The Second Boer War in 1899 was fought where?",
+    "correct_answer": "South Africa",
+    "incorrect_answers": ["Argentina", "Nepal", "Bulgaria"]
+  },
+  {
+    "category": "Entertainment: Film",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "In the movie &quot;Spaceballs&quot;, what are the Spaceballs attempting to steal from Planet Druidia?",
+    "correct_answer": "Air",
+    "incorrect_answers": ["The Schwartz", "Princess Lonestar", "Meatballs"]
+  },
+  {
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "When was &quot;System Shock&quot; released?",
+    "correct_answer": "1994",
+    "incorrect_answers": ["1995", "2000", "1998"]
+  },
+  {
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "medium",
+    "question": "What is the name of the protagonist&#039;s first Persona in &quot;Persona 5&quot;?",
+    "correct_answer": "Arsene",
+    "incorrect_answers": ["Mara", "Izanagi", "Sandaphlon"]
+  },
+  {
+    "category": "Entertainment: Video Games",
+    "type": "multiple",
+    "difficulty": "easy",
+    "question": "What is the name of the City in Saints Row The Third?",
+    "correct_answer": "Steelport",
+    "incorrect_answers": ["Stilwater", "Carcer", "Liberty"]
+  },
+  {
+    "category": "Entertainment: Books",
+    "type": "boolean",
+    "difficulty": "medium",
+    "question": "Originally, the character Charlie from Charlie and the Chocolate Factory was going to be black.",
+    "correct_answer": "True",
+    "incorrect_answers": ["False"]
+  }
+]

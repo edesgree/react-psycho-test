@@ -1,0 +1,186 @@
+{
+  "quiz_title": "Personality Assessment Quiz",
+  "questions": [
+    {
+      "question": "How do you usually approach new situations?",
+      "options": [
+        {
+          "category": "A",
+          "option": "I dive right in, eager to explore and learn."
+        },
+        {
+          "category": "B",
+          "option": "I cautiously observe and gather information before taking action."
+        },
+        {
+          "category": "C",
+          "option": "I prefer a structured plan before proceeding."
+        },
+        {
+          "category": "D",
+          "option": "I enjoy collaborating and discussing with others before making decisions."
+        }
+      ]
+    },
+    {
+      "question": "How do you typically handle stress?",
+      "options": [
+        {
+          "category": "A",
+          "option": "I embrace challenges and find ways to adapt and overcome them."
+        },
+        {
+          "category": "B",
+          "option": "I seek solitude to reflect and recharge."
+        },
+        {
+          "category": "C",
+          "option": "I rely on routines and established methods to manage stress."
+        },
+        {
+          "category": "D",
+          "option": "I reach out to friends or loved ones for support and advice."
+        }
+      ]
+    },
+    {
+      "question": "Which statement best describes your communication style?",
+      "options": [
+        {
+          "category": "A",
+          "option": "I'm enthusiastic and expressive, often using gestures and facial expressions."
+        },
+        {
+          "category": "B",
+          "option": "I'm a good listener and prefer thoughtful, concise responses."
+        },
+        {
+          "category": "C",
+          "option": "I'm logical and articulate, presenting information in a clear and organized manner."
+        },
+        {
+          "category": "D",
+          "option": "I'm empathetic and intuitive, focusing on building connections and understanding."
+        }
+      ]
+    },
+    {
+      "question": "How do you approach decision-making?",
+      "options": [
+        {
+          "category": "A",
+          "option": "I trust my gut instincts and make decisions quickly."
+        },
+        {
+          "category": "B",
+          "option": "I weigh the pros and cons carefully before reaching a conclusion."
+        },
+        {
+          "category": "C",
+          "option": "I gather as much information as possible and analyze it thoroughly."
+        },
+        {
+          "category": "D",
+          "option": "I consider the perspectives and opinions of others before making a choice."
+        }
+      ]
+    },
+    {
+      "question": "What type of environment do you find most energizing?",
+      "options": [
+        {
+          "category": "A",
+          "option": "A dynamic and fast-paced environment with constant change and challenges."
+        },
+        {
+          "category": "B",
+          "option": "A calm and peaceful environment that allows for focus and reflection."
+        },
+        {
+          "category": "C",
+          "option": "A structured and organized environment with clear rules and expectations."
+        },
+        {
+          "category": "D",
+          "option": "A collaborative and social environment where I can interact with others."
+        }
+      ]
+    },
+    {
+      "question": "How do you handle conflicts or disagreements?",
+      "options": [
+        {
+          "category": "A",
+          "option": "I address conflicts head-on and strive to find a resolution."
+        },
+        {
+          "category": "B",
+          "option": "I prefer to avoid conflicts and seek compromise when necessary."
+        },
+        {
+          "category": "C",
+          "option": "I rely on logical reasoning and facts to resolve conflicts."
+        },
+        {
+          "category": "D",
+          "option": "I prioritize understanding and empathy to find common ground."
+        }
+      ]
+    },
+    {
+      "question": "What brings you the most satisfaction in life?",
+      "options": [
+        {
+          "category": "A",
+          "option": "Accomplishing goals and facing new challenges."
+        },
+        { "category": "B", "option": "Personal growth and self-reflection." },
+        { "category": "C", "option": "Stability and a sense of order." },
+        {
+          "category": "D",
+          "option": "Meaningful relationships and connections."
+        }
+      ]
+    },
+    {
+      "question": "How do you usually approach tasks or projects?",
+      "options": [
+        {
+          "category": "A",
+          "option": "I prefer to multitask and work on multiple things simultaneously."
+        },
+        {
+          "category": "B",
+          "option": "I focus on one task at a time and strive for perfection."
+        },
+        {
+          "category": "C",
+          "option": "I create a detailed plan and follow it step by step."
+        },
+        {
+          "category": "D",
+          "option": "I enjoy working collaboratively with others and value their input."
+        }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "category": "Adventurous and Enthusiastic",
+      "description": "Congratulations! You fall into the Adventurous and Enthusiastic category. You have a zest for life and love to dive into new experiences head-on. You thrive in dynamic and challenging environments, constantly seeking growth and adventure. Your enthusiasm and energy are infectious, and you inspire those around you with your willingness to take risks and explore new possibilities."
+    },
+    {
+      "category": "Reflective and Thoughtful",
+      "description": "Congratulations! You belong to the Reflective and Thoughtful category. You are introspective and have a deep appreciation for contemplation and self-reflection. You prefer to approach situations with careful consideration and weigh the pros and cons before making decisions. Your thoughtful nature allows you to bring wisdom and insight to conversations and relationships, making you a valued listener and advisor."
+    },
+    {
+      "category": "Organized and Analytical",
+      "description": "Congratulations! You fall into the Organized and Analytical category. You thrive in structured and organized environments, where you can rely on routines and clear methodologies. Your logical and analytical approach to problem-solving enables you to excel in tasks that require attention to detail and critical thinking. Your ability to gather and analyze information makes you a valuable asset when it comes to making well-informed decisions."
+    },
+    {
+      "category": "Social and Empathetic",
+      "description": "Congratulations! You belong to the Social and Empathetic category. You have a natural ability to connect with others on a deep level and understand their emotions. You prioritize building and nurturing relationships, and your empathetic nature allows you to provide support and guidance to those around you. Your collaborative spirit and genuine interest in others make you a cherished friend and confidant."
+    }
+  ],
+  "points": [{ "A": 4 }, { "B": 3 }, { "C": 2 }, { "D": 1 }]
+}

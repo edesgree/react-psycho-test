@@ -1,6 +1,6 @@
 interface IntroProps {
   start: () => void;
-  testt: boolean;
+  testt: number;
 }
 const Intro = (props: IntroProps): JSX.Element => {
   return (

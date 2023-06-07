@@ -1,18 +1,9 @@
 import React from 'react';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
-
-interface QuestionProps {
-  id: string;
-  question: string;
-  correct_answer: string;
-  user_choice: string | null;
-  all_answers: string[];
-  quiz_completed: boolean;
-  updateUserChoice: (id: string, choice: string) => void;
-}
-const Question: React.FC<QuestionProps> = (props) => {
-  const [choice, setChoice] = React.useState('');
+import { IsQuestionProps, IsOption } from '../interface';
+const Question: React.FC<IsQuestionProps> = (props) => {
+  const [choice, setChoice] = React.useState<IsOption>();
 
   // set user choice on click
   function handleChoice(event: React.MouseEvent<HTMLButtonElement>) {
@@ -26,19 +17,20 @@ const Question: React.FC<QuestionProps> = (props) => {
 
   React.useEffect(() => {
     // update quiz object with choice each time the choice state is changed
-    props.updateUserChoice(props.id, choice);
+    props.updateUserChoice(props.id, choice.option);
   }, [choice]);
 
-  const answersElements = props.all_answers?.map((answer) => {
+  const answersElements = props.options?.map((answer) => {
     // assign correct css style to button
     function getButtonStyle(): string {
       let style = '';
       if (!props.quiz_completed) {
-        if (answer === choice) {
+        if (answer.option === choice.option) {
           style = 'active';
         }
       } else {
         style = 'desactive ';
+        /*
         if (answer === props.correct_answer) {
           style += 'correct';
         } else if (answer === props.user_choice) {
@@ -46,6 +38,7 @@ const Question: React.FC<QuestionProps> = (props) => {
         } else {
           style += 'not-selected';
         }
+        */
       }
       return style;
     }
@@ -54,10 +47,10 @@ const Question: React.FC<QuestionProps> = (props) => {
       <button
         key={nanoid()}
         onClick={handleChoice}
-        value={answer}
+        value={answer.option}
         className={getButtonStyle()}
       >
-        {decode(answer)}
+        {decode(answer.option)}
       </button>
     );
   });

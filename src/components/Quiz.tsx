@@ -2,48 +2,45 @@ import React from 'react';
 import Question from './Question';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
-interface QuizData {
-  id: string;
-  all_answers: string[];
-  question: string;
-  correct_answer: string;
-  user_correct: boolean;
-  user_choice: string | null;
-}
+import localQuizData from '../data/psychotest.json';
+import {
+  IsQuizData,
+  IsOption,
+  IsQuestion,
+  IsQuiz,
+  IsResult
+} from '../interface';
+console.log('localQuizData', localQuizData);
 
 const Quiz = () => {
-  const [quizData, setQuizData] = React.useState<QuizData[]>([]);
+  const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [quizCompleted, setQuizCompleted] = React.useState<boolean>(false);
   const [gameStartCount, setGameStartCount] = React.useState<number>(0);
-  const [totalScore, setTotalScore] = React.useState<number>(0);
+  const [totalScore, setTotalScore] = React.useState<number[]>([0, 0, 0, 0]);
   const nbQuestions = 10;
 
-  const fetchData = async (): Promise<void> => {
-    // get questions from API
-    const res = await fetch(
-      `https://opentdb.com/api.php?amount=${nbQuestions}`
-    );
-    const data = await res.json();
+  const fetchData = () => {
+    // get questions
+    console.log('localQuizData.questions', localQuizData.questions);
+    const dataQuestions: IsQuestion[] = localQuizData.questions;
+    //console.log(data);
 
     // store data in a custom object
-    const customData: QuizData[] = [];
-    data.results.forEach((item: any) => {
+    const customData: IsQuizData[] = [];
+    dataQuestions.forEach((item: IsQuestion) => {
       customData.push({
         id: nanoid(),
-        all_answers: randomizeAnswers([
-          item.correct_answer,
-          ...item.incorrect_answers
-        ]),
+        options: randomizeAnswers(item.options),
         question: decode(item.question),
-        correct_answer: item.correct_answer,
-        user_correct: false,
         user_choice: null
       });
     });
     // set Quiz Data with this custom object
     setQuizData(customData);
     setLoading(false);
+    console.log('loading', loading);
+    console.log('customData', quizData);
   };
 
   // each time GameStartCount is updated, a new quiz is rendered with score reset
@@ -51,23 +48,34 @@ const Quiz = () => {
     fetchData();
     setQuizCompleted(false);
     setLoading(true);
-    setTotalScore(0);
+    setTotalScore([0, 0, 0, 0]);
   }, [gameStartCount]);
 
   // used to randomize answers array
-  const randomizeAnswers = (arr: string[]): string[] =>
+  const randomizeAnswers = (arr: IsOption[]): IsOption[] =>
     arr.sort(() => Math.random() - 0.5);
 
   // check if answers are correct or not
   function handleFinalCheck(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
     setQuizCompleted(true);
-    let currentScore = 0;
+    const currentScore = [0, 0, 0, 0];
     quizData.forEach((question) => {
-      if (question.correct_answer === question.user_choice) {
-        currentScore += 1;
-        question.user_correct = true;
+      switch (question.user_choice) {
+        case 'A':
+          currentScore[0] += 4;
+          break;
+        case 'B':
+          currentScore[1] += 3;
+          break;
+        case 'C':
+          currentScore[2] += 2;
+          break;
+        case 'D':
+          currentScore[3] += 1;
+          break;
       }
+      console.log('currentScore', currentScore);
     });
     // update score
     setTotalScore(currentScore);
@@ -86,14 +94,13 @@ const Quiz = () => {
     );
   }
   // question elements rendering
-  const questionsElements = quizData.map((item: QuizData) => {
+  const questionsElements = quizData.map((item: IsQuizData) => {
     return (
       <Question
         key={item.id}
         id={item.id}
         question={item.question}
-        correct_answer={item.correct_answer}
-        all_answers={item.all_answers}
+        options={item.options}
         updateUserChoice={updateUserChoice}
         user_choice={item.user_choice}
         quiz_completed={quizCompleted}
