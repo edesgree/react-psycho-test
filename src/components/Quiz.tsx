@@ -3,7 +3,7 @@ import Question from './Question';
 import Result from './Result';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
-import localQuizData from '../data/superhero.json';
+
 import {
   IsQuiz,
   IsQuizData,
@@ -12,10 +12,13 @@ import {
   IsPoint,
   IsResult
 } from '../interface';
-console.log('localQuizData', localQuizData);
-const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
+
+const Quiz: React.FC<IsQuiz> = ({ quizInfo, resetGame }) => {
+  console.log('props.quizInfo', quizInfo);
   const [quizTitle, setQuizTitle] = React.useState<string>('');
   const [points, setPoints] = React.useState<IsPoint[]>();
+  const [results, setResults] = React.useState<IsResult[]>();
+
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [quizCompleted, setQuizCompleted] = React.useState<boolean>(false);
@@ -23,27 +26,16 @@ const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
     React.useState<boolean>(false);
   const [gameStartCount, setGameStartCount] = React.useState<number>(0);
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
-  const [results, setResults] = React.useState<IsResult[]>();
+
   const nbQuestions = 10;
-
-  // fetch data from json file
+  //const imagePath = require('path/to/image').default;
+  console.log('test');
   const fetchData = () => {
-    // get quiz title
-    const dataTitle: string = localQuizData.quiz_title;
-    setQuizTitle(dataTitle);
     // get questions
-    console.log('localQuizData.questions', localQuizData.questions);
-    const dataQuestions: IsQuestion[] = localQuizData.questions;
+    console.log('quizInfo.questions', quizInfo.questions);
+    const dataQuestions: IsQuestion[] = quizInfo.questions;
 
-    // get points
-    const dataPoints: IsPoint[] = localQuizData.points;
-    setPoints(dataPoints);
-
-    // get results
-    const dataResults: IsResult[] = localQuizData.results;
-    setResults(dataResults);
-
-    // store quiz data in a custom object
+    // store question data in a custom object
     const customData: IsQuizData[] = [];
     dataQuestions.slice(0, nbQuestions).forEach((item: IsQuestion) => {
       customData.push({
@@ -64,16 +56,12 @@ const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
   }, [loading]);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
+    console.log('quizInfo', quizInfo);
     setLoading(true);
     fetchData();
     setQuizCompleted(false);
-
-    setTotalScore([
-      { category: 'A', point: 0 },
-      { category: 'B', point: 0 },
-      { category: 'C', point: 0 },
-      { category: 'D', point: 0 }
-    ]);
+    // reset score
+    resetScore();
   }, [gameStartCount]);
 
   // used to randomize answers array
@@ -96,9 +84,9 @@ const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
     quizData.forEach((question) => {
       console.log('question', question);
       // assign points for each category
-      for (let i = 0; i < points?.length; i++) {
-        if (question.user_choice?.category === points[i]?.category) {
-          currentScore[i].point += points[i]?.point;
+      for (let i = 0; i < quizInfo.points?.length; i++) {
+        if (question.user_choice?.category === quizInfo.points[i]?.category) {
+          currentScore[i].point += quizInfo.points[i]?.point;
         }
       }
       // check if all questions have been answered
@@ -122,10 +110,19 @@ const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
     // update score
     setTotalScore(currentScore);
   }
-
+  // reset score
+  function resetScore() {
+    setTotalScore((prevTotalScore) => {
+      const updatedTotalScore = prevTotalScore?.map((score) => {
+        return { ...score, point: 0 };
+      });
+      return updatedTotalScore;
+    });
+  }
   // restart game by updating GameStartCount state
   function handleRestart(): void {
     setGameStartCount((prevCount) => prevCount + 1);
+    resetGame();
   }
   // update quizData to show what the user chose
   function updateUserChoice(id: string, choice: IsOption) {
@@ -162,12 +159,12 @@ const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
   });
 
   // your personal score rendering
-  const yourCategoryResult = totalScore?.sort((a, b) => b.point - a.point)[0];
+  const totalScoreSorted = totalScore?.sort((a, b) => b.point - a.point)[0];
 
   // results text rendering
-  const resultsElements = results
-    ?.filter((cat) => cat.category === yourCategoryResult?.category)
-    .map((item) => {
+  const resultsElements = quizInfo.results
+    ?.filter((cat: IsResult) => cat.category === totalScoreSorted?.category)
+    .map((item: IsResult) => {
       return (
         <Result
           key={nanoid()}
@@ -185,7 +182,13 @@ const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
         'loading...'
       ) : (
         <div>
-          <h2>{quizTitle}</h2>
+          <img
+            className="img-responsive"
+            width={100}
+            src={`img/${quizInfo.quiz_icon}`}
+            alt={quizInfo.quiz_title}
+          />
+          <h2>{quizInfo.quiz_title}</h2>
           {!quizCompleted && (
             <div className="quiz-questions">{questionsElements}</div>
           )}
