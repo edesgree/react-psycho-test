@@ -5,8 +5,10 @@ import Quiz from './components/Quiz';
 
 function App() {
   const [gameStart, setGameStart] = React.useState<boolean>(false);
+  const [quizType, setQuizType] = React.useState<string>('');
   function startGame(): void {
     setGameStart(true);
+    setQuizType('superhero');
   }
 
   return (
@@ -15,7 +17,7 @@ function App() {
         <h1>Psy test</h1>
       </header>
       {!gameStart && <Intro start={startGame} />}
-      {gameStart && <Quiz />}
+      {gameStart && <Quiz quizType={quizType} />}
     </main>
   );
 }

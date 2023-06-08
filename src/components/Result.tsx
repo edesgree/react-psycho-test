@@ -1,8 +1,6 @@
 import { IsResult } from '../interface';
-interface ResultProps extends IsResult {
-  key: string;
-}
-const Result = (props: ResultProps) => {
+
+const Result = (props: IsResult) => {
   return (
     <div key={props.key}>
       {/*<p>{props.category}</p>*/}

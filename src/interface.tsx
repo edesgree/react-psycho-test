@@ -27,13 +27,13 @@ export interface IsQuiz {
   quiz_title: string;
   questions: IsQuestion[];
   results: IsResult[];
+  quizType: string;
 }
 export interface IsResult {
   category: string;
   description: string;
   title: string;
   image: string;
-  key: string;
 }
 export interface IsPoint {
   category: string;

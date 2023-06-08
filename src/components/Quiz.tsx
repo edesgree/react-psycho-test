@@ -1,10 +1,11 @@
-import React, { forwardRef } from 'react';
+import React from 'react';
 import Question from './Question';
 import Result from './Result';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
 import localQuizData from '../data/superhero.json';
 import {
+  IsQuiz,
   IsQuizData,
   IsOption,
   IsQuestion,
@@ -12,8 +13,7 @@ import {
   IsResult
 } from '../interface';
 console.log('localQuizData', localQuizData);
-
-const Quiz = () => {
+const Quiz: React.FC<IsQuiz> = ({ quizType }) => {
   const [quizTitle, setQuizTitle] = React.useState<string>('');
   const [points, setPoints] = React.useState<IsPoint[]>();
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
@@ -25,8 +25,8 @@ const Quiz = () => {
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
   const [results, setResults] = React.useState<IsResult[]>();
   const nbQuestions = 10;
-  //const imagePath = require('path/to/image').default;
-  console.log('test');
+
+  // fetch data from json file
   const fetchData = () => {
     // get quiz title
     const dataTitle: string = localQuizData.quiz_title;
@@ -43,7 +43,7 @@ const Quiz = () => {
     const dataResults: IsResult[] = localQuizData.results;
     setResults(dataResults);
 
-    // store data in a custom object
+    // store quiz data in a custom object
     const customData: IsQuizData[] = [];
     dataQuestions.slice(0, nbQuestions).forEach((item: IsQuestion) => {
       customData.push({
