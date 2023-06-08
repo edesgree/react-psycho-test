@@ -1,5 +1,6 @@
 import React, { forwardRef } from 'react';
 import Question from './Question';
+import Result from './Result';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
 import localQuizData from '../data/superhero.json';
@@ -168,14 +169,13 @@ const Quiz = (props) => {
     ?.filter((cat) => cat.category === yourCategoryResult?.category)
     .map((item) => {
       return (
-        <div key={nanoid()}>
-          <p>{item.category}</p>
-          <p>{item.title}</p>
-          <p>
-            <img src={`${item.image}`} alt={item.title} />
-          </p>
-          <p>{item.description}</p>
-        </div>
+        <Result
+          key={nanoid()}
+          category={item.category}
+          title={item.title}
+          image={item.image}
+          description={item.description}
+        />
       );
     });
   console.log('resultsElements', resultsElements);
@@ -186,12 +186,15 @@ const Quiz = (props) => {
       ) : (
         <div>
           <h2>{quizTitle}</h2>
-          <div className="quiz-questions">{questionsElements}</div>
-
+          {!quizCompleted && (
+            <div className="quiz-questions">{questionsElements}</div>
+          )}
           <footer className="quiz-footer">
             {!quizCompleted && (
               <>
-                {questionsRemaining && <p>Please answer all questions</p>}
+                {questionsRemaining && (
+                  <p className="error">Please answer all questions</p>
+                )}
                 <button className="primary" onClick={handleFinalCheck}>
                   Check your results
                 </button>
@@ -199,7 +202,7 @@ const Quiz = (props) => {
             )}
             {quizCompleted && (
               <div>
-                <p>You scored :</p>
+                <h3>Your results :</h3>
                 {totalScoreElements}
                 {resultsElements}
 
