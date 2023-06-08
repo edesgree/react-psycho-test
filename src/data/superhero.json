@@ -51,21 +51,25 @@
     {
       "category": "A",
       "title": "The Mighty Protector",
+      "image": "superheroes/mighty-protector.jpg",
       "description": "You are a powerhouse of strength and courage. With your incredible might, you protect the innocent and fight against evil forces. Your unwavering determination and indomitable spirit inspire others to believe in the strength of justice."
     },
     {
       "category": "B",
       "title": "The Mind Maven",
+      "image": "superheroes/mind-maven.jpg",
       "description": "You possess incredible mental abilities, allowing you to read minds and tap into the vast knowledge of the universe. As the Mind Maven, you guide and mentor others, using your wisdom and insight to help them navigate through life's challenges."
     },
     {
       "category": "C",
       "title": "The Soaring Aviator",
+      "image": "superheroes/soaring-aviator.jpg",
       "description": "You are blessed with the ability to take flight and soar through the skies. As the Soaring Aviator, you enforce justice and uphold the law, using your aerial prowess to keep the world safe from threats. Your unwavering commitment to truth and order inspires others to strive for a better future."
     },
     {
       "category": "D",
       "title": "The Speedster",
+      "image": "superheroes/speedster.jpg",
       "description": "You possess lightning-fast speed, allowing you to zip through life with incredible agility. As the Speedster, you utilize your powers for humanitarian missions, helping those in need and making a positive impact on the world. Your selflessness and quick thinking make you a true hero."
     }
   ],

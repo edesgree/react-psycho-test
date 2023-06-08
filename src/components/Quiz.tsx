@@ -22,6 +22,7 @@ const Quiz = (props) => {
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
   const [results, setResults] = React.useState<IsResult[]>();
   const nbQuestions = 10;
+  //const imagePath = require('path/to/image').default;
   console.log('test');
   const fetchData = () => {
     // get quiz title
@@ -38,8 +39,6 @@ const Quiz = (props) => {
     // get results
     const dataResults: IsResult[] = localQuizData.results;
     setResults(dataResults);
-
-    //console.log(data);
 
     // store data in a custom object
     const customData: IsQuizData[] = [];
@@ -157,6 +156,9 @@ const Quiz = (props) => {
         <div key={nanoid()}>
           <p>{item.category}</p>
           <p>{item.title}</p>
+          <p>
+            <img src={`${item.image}`} alt={item.title} />
+          </p>
           <p>{item.description}</p>
         </div>
       );
@@ -174,7 +176,7 @@ const Quiz = (props) => {
           <footer className="quiz-footer">
             {!quizCompleted && (
               <button className="primary" onClick={handleFinalCheck}>
-                Check answers
+                Check your results
               </button>
             )}
             {quizCompleted && (
@@ -184,7 +186,7 @@ const Quiz = (props) => {
                 {resultsElements}
 
                 <button className="primary" onClick={handleRestart}>
-                  Start new game
+                  Start new test
                 </button>
               </div>
             )}

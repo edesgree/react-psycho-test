@@ -32,6 +32,7 @@ export interface IsResult {
   category: string;
   description: string;
   title: string;
+  image: string;
 }
 export interface IsPoint {
   category: string;
