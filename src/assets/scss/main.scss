@@ -150,3 +150,33 @@ body {
     height: auto;
     max-width: 100%;
   }
+
+  .quiz-selection-list{
+    //same height
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    // remove bullets
+    list-style: none;
+    li{
+      
+      width: 100%;
+      img{
+        height: 60px;
+        width: 60px;
+      }
+      button{
+        align-items: center;
+        display: flex;
+        padding: 0;
+        width: 100%;
+        span{
+          display: block;
+          flex:1;
+          padding: 20px;
+          text-align: center;
+        }
+      }
+    }
+  }
