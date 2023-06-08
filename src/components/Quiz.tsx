@@ -18,6 +18,8 @@ const Quiz = (props) => {
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [quizCompleted, setQuizCompleted] = React.useState<boolean>(false);
+  const [questionsRemaining, setQuestionsRemaining] =
+    React.useState<boolean>(false);
   const [gameStartCount, setGameStartCount] = React.useState<number>(0);
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
   const [results, setResults] = React.useState<IsResult[]>();
@@ -77,10 +79,12 @@ const Quiz = (props) => {
   const randomizeAnswers = (arr: IsOption[]): IsOption[] =>
     arr.sort(() => Math.random() - 0.5);
 
-  // add the points for each category
+  // add the points for each category, check if all questions have been answered
   function handleFinalCheck(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-    setQuizCompleted(true);
+
+    // check if all questions have been answered
+    let allAnswered = true;
 
     const currentScore: IsPoint[] = [
       { category: 'A', point: 0 },
@@ -96,13 +100,24 @@ const Quiz = (props) => {
           currentScore[i].point += points[i]?.point;
         }
       }
-
+      // check if all questions have been answered
+      if (question.user_choice === undefined || question.user_choice === null) {
+        allAnswered = false;
+        console.log('question not answered', question);
+      }
       console.log('currentScore', currentScore);
       console.log('score A', currentScore[0].point);
       console.log('score B', currentScore[1].point);
       console.log('score C', currentScore[2].point);
       console.log('score D', currentScore[3].point);
     });
+    console.log('allAnswered', allAnswered);
+    if (!allAnswered) {
+      console.log('Please answer all questions');
+      setQuestionsRemaining(true);
+      return;
+    }
+    setQuizCompleted(true);
     // update score
     setTotalScore(currentScore);
   }
@@ -175,9 +190,12 @@ const Quiz = (props) => {
 
           <footer className="quiz-footer">
             {!quizCompleted && (
-              <button className="primary" onClick={handleFinalCheck}>
-                Check your results
-              </button>
+              <>
+                {questionsRemaining && <p>Please answer all questions</p>}
+                <button className="primary" onClick={handleFinalCheck}>
+                  Check your results
+                </button>
+              </>
             )}
             {quizCompleted && (
               <div>
