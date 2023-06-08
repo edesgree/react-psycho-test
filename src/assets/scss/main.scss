@@ -48,8 +48,10 @@ body {
   }
   button {
     background-color: $yellow;
-    border: solid 4px $dark;
+    border-color: $dark;
     border-radius: 0;
+    border-style: solid;
+    border-width: 4px;
     box-shadow: 4px 4px 0px 0px $dark;
     color:$yellow-darker;
     cursor: pointer;
@@ -63,7 +65,7 @@ body {
     &.primary {
       background: $red;
       border: none;
-      border: solid 4px $red-dark;
+      border-color: $red-dark;
       box-shadow: 4px 4px 0px 0px $red-dark;
       color: $red-darker;
       &:hover {
@@ -75,11 +77,12 @@ body {
       background-color: $blue;
       border-color: $blue-darker;
     }
-    &.desactive {
+    &.disabled {
       &,
       &:hover {
         background-color: $grey;
         border-color: $grey-dark;
+        box-shadow: 4px 4px 0px 0px $dark;
         color: $grey-darker;
       }
     }

@@ -28,7 +28,6 @@ function App() {
     fetch('./data/data.json')
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setQuizInfo(data);
         setLoading(false);
       });
@@ -60,7 +59,7 @@ function App() {
               />
             </>
           )}
-          {gameStart && (
+          {gameStart && quizSelected && (
             <Quiz quizSelected={quizSelected} resetGame={resetGame} />
           )}
         </>

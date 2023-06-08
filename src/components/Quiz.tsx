@@ -15,6 +15,7 @@ import {
 } from '../interface';
 
 const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
+  console.log('quizSelected', quizSelected);
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [quizCompleted, setQuizCompleted] = React.useState<boolean>(false);
@@ -23,28 +24,32 @@ const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
   const [gameStartCount, setGameStartCount] = React.useState<number>(0);
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
 
-  const nbQuestions = Math.min(3, quizSelected.questions.length);
-
-  const fetchQuizData = () => {
-    // store question data in a custom object
-    const customData: IsQuizData[] = [];
-    quizSelected.questions.slice(0, nbQuestions).forEach((item: IsQuestion) => {
-      customData.push({
-        id: nanoid(),
-        options: randomizeAnswers(item.options),
-        question: decode(item.question),
-        user_choice: null
-      });
-    });
-    // set Quiz Data with this custom object
-    setQuizData(customData);
-    setLoading(false);
-  };
   React.useEffect(() => {
     console.log('loading state', loading);
   }, [loading]);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
+    const nbQuestions: number | undefined = Math.min(
+      3,
+      quizSelected.questions.length
+    );
+    const fetchQuizData = () => {
+      // store question data in a custom object
+      const customData: IsQuizData[] = [];
+      quizSelected.questions
+        .slice(0, nbQuestions)
+        .forEach((item: IsQuestion) => {
+          customData.push({
+            id: nanoid(),
+            options: randomizeAnswers(item.options),
+            question: decode(item.question),
+            user_choice: null
+          });
+        });
+      // set Quiz Data with this custom object
+      setQuizData(customData);
+      setLoading(false);
+    };
     setLoading(true);
     fetchQuizData();
     setQuizCompleted(false);
