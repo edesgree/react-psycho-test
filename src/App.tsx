@@ -8,6 +8,7 @@ function App() {
   function startGame(): void {
     setGameStart(true);
   }
+
   return (
     <main className="App">
       <header>

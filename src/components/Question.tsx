@@ -54,8 +54,8 @@ const Question: React.FC<IsQuestionProps> = (props) => {
   });
   return (
     <div className="question">
-      <h2 className="question-title">{props.question}</h2>
-      {/*correct_answer: {props.correct_answer}*/}
+      <h3 className="question-title">{props.question}</h3>
+
       <div className="question-answers">{answersElements}</div>
     </div>
   );

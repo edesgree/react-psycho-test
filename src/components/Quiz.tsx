@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import Question from './Question';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
@@ -12,7 +12,8 @@ import {
 } from '../interface';
 console.log('localQuizData', localQuizData);
 
-const Quiz = () => {
+const Quiz = (props) => {
+  const [quizTitle, setQuizTitle] = React.useState<string>('');
   const [points, setPoints] = React.useState<IsPoint[]>();
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -23,6 +24,9 @@ const Quiz = () => {
   const nbQuestions = 10;
   console.log('test');
   const fetchData = () => {
+    // get quiz title
+    const dataTitle: string = localQuizData.quiz_title;
+    setQuizTitle(dataTitle);
     // get questions
     console.log('localQuizData.questions', localQuizData.questions);
     const dataQuestions: IsQuestion[] = localQuizData.questions;
@@ -50,15 +54,18 @@ const Quiz = () => {
     // set Quiz Data with this custom object
     setQuizData(customData);
     setLoading(false);
-    console.log('loading', loading);
+
     console.log('customData', customData);
   };
-
+  React.useEffect(() => {
+    console.log('loading state', loading);
+  }, [loading]);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
+    setLoading(true);
     fetchData();
     setQuizCompleted(false);
-    setLoading(true);
+
     setTotalScore([
       { category: 'A', point: 0 },
       { category: 'B', point: 0 },
@@ -85,9 +92,9 @@ const Quiz = () => {
     quizData.forEach((question) => {
       console.log('question', question);
       // assign points for each category
-      for (let i = 0; i < points.length; i++) {
-        if (question.user_choice?.category === points[i].category) {
-          currentScore[i].point += points[i].point;
+      for (let i = 0; i < points?.length; i++) {
+        if (question.user_choice?.category === points[i]?.category) {
+          currentScore[i].point += points[i]?.point;
         }
       }
 
@@ -157,36 +164,33 @@ const Quiz = () => {
   console.log('resultsElements', resultsElements);
   return (
     <section className="quiz">
-      {/* 
       {loading ? (
         'loading...'
       ) : (
-        */}
-      <div>
-        <div className="quiz-questions">{questionsElements}</div>
+        <div>
+          <h2>{quizTitle}</h2>
+          <div className="quiz-questions">{questionsElements}</div>
 
-        <footer className="quiz-footer">
-          {!quizCompleted && (
-            <button className="primary" onClick={handleFinalCheck}>
-              Check answers
-            </button>
-          )}
-          {quizCompleted && (
-            <div>
-              <p>You scored :</p>
-              {totalScoreElements}
-              {resultsElements}
-
-              <button className="primary" onClick={handleRestart}>
-                Start new game
+          <footer className="quiz-footer">
+            {!quizCompleted && (
+              <button className="primary" onClick={handleFinalCheck}>
+                Check answers
               </button>
-            </div>
-          )}
-        </footer>
-      </div>
-      {/* 
+            )}
+            {quizCompleted && (
+              <div>
+                <p>You scored :</p>
+                {totalScoreElements}
+                {resultsElements}
+
+                <button className="primary" onClick={handleRestart}>
+                  Start new game
+                </button>
+              </div>
+            )}
+          </footer>
+        </div>
       )}
-      */}
     </section>
   );
 };
