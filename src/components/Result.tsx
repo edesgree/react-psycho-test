@@ -11,7 +11,7 @@ const Result = (props: IsResult) => {
       <p>
         <img
           className="img-responsive "
-          src={`${props.image}`}
+          src={`img/${props.image}`}
           alt={props.title}
         />
       </p>
