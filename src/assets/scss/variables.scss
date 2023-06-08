@@ -26,3 +26,13 @@ $subtitle-weight: $weight-medium;
   @mixin for-big-desktop-up {
     @media (min-width: 1800px) { @content; }
   }
+
+//loading animation
+$animation-speed: 2s;
+/*    Spinner Variables */
+$spinner-size: 10;
+$line-color: $blue;
+$line-alpha: 0.73;
+$ring-color: $yellow;
+$ring-alpha: 0.2;
+$ring-size: 4;
