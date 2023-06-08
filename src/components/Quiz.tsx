@@ -36,7 +36,7 @@ const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
     const fetchQuizData = () => {
       // store question data in a custom object
       const customData: IsQuizData[] = [];
-      quizSelected.questions
+      quizSelected?.questions
         .slice(0, nbQuestions)
         .forEach((item: IsQuestion) => {
           customData.push({
