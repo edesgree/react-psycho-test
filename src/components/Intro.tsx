@@ -1,13 +1,15 @@
-import React from 'react';
-
 import { IntroProps } from '../interface';
 
 const Intro = (props: IntroProps): JSX.Element => {
   // set user choice on click
-  function handleChoice(quizType: string): void {
+  const handleChoice = (quizType: string): void => {
     props.choiceChanger(quizType);
-  }
-
+  };
+  const handleStart = (): void => {
+    if (props.choice) {
+      props.startGame(props.choice);
+    }
+  };
   //display quiz titles listing from quizInfo
   const quizTitlesElements = props.quizInfo?.map((quiz, i) => {
     return (
@@ -35,7 +37,7 @@ const Intro = (props: IntroProps): JSX.Element => {
       <button
         className={`${props.choice === undefined ? 'disabled' : ''} primary`}
         disabled={props.choice === undefined}
-        onClick={() => props.start(props.choice)}
+        onClick={handleStart}
       >
         Start Quiz
       </button>

@@ -55,7 +55,7 @@ function App() {
                 choiceChanger={setChoice}
                 choice={choice}
                 quizInfo={quizInfo}
-                start={startGame}
+                startGame={startGame}
               />
             </>
           )}

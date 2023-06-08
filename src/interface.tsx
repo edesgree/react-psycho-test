@@ -1,5 +1,5 @@
 export interface IntroProps {
-  start: () => void;
+  startGame: (quizTypeChosen: string) => void;
   quizInfo?: IsQuiz[];
   choice?: string | undefined;
   choiceChanger: (choice: string | undefined) => void;
