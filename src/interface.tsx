@@ -1,5 +1,8 @@
 export interface IntroProps {
   start: () => void;
+  quizInfo?: IsQuiz[];
+  choice?: string | undefined;
+  choiceChanger: (choice: string | undefined) => void;
 }
 export interface IsQuestionProps {
   id: string;
@@ -9,10 +12,14 @@ export interface IsQuestionProps {
   quiz_completed: boolean;
   updateUserChoice: (id: string, choice: IsOption) => void;
 }
-export interface IsQuizData {
+export interface IsData {
+  quiz_title: string;
+  questions: IsQuestion[];
+  results: IsResult[];
+  quizType: string;
+}
+export interface IsQuizData extends IsQuestion {
   id: string;
-  question: string;
-  options: IsOption[];
   user_choice: IsOption | null;
 }
 export interface IsOption {
@@ -23,11 +30,16 @@ export interface IsQuestion {
   question: string;
   options: IsOption[];
 }
+export interface IsQuizProps extends IsQuiz {
+  quizInfo: IsQuiz;
+}
 export interface IsQuiz {
+  quiz_type: string;
   quiz_title: string;
+  quiz_icon: string;
   questions: IsQuestion[];
   results: IsResult[];
-  quizType: string;
+  points: IsPoint[];
 }
 export interface IsResult {
   category: string;
