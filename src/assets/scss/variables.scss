@@ -1,0 +1,28 @@
+
+$family-serif: 'Inter', sans-serif;
+$family-primary: $family-serif;
+
+
+$body-size: 20px;
+$weight-normal: 400;
+$weight-medium: 600;
+$weight-bold: 800;
+$title-weight: $weight-bold;
+$subtitle-weight: $weight-medium;
+
+
+@mixin mobile {
+    @media (max-width: 599px) { @content; }
+  }
+  @mixin for-tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+  }
+  @mixin for-tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+  }
+  @mixin for-desktop-up {
+    @media (min-width: 1200px) { @content; }
+  }
+  @mixin for-big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+  }
