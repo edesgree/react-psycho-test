@@ -11,7 +11,11 @@ const Result = (props: ResultProps) => {
         {props.title}
       </p>
       <p>
-        <img src={`${props.image}`} alt={props.title} />
+        <img
+          className="img-responsive "
+          src={`${props.image}`}
+          alt={props.title}
+        />
       </p>
       <p className="bold">{props.description}</p>
     </div>
