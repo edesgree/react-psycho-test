@@ -3,7 +3,7 @@ import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
 import { IsQuestionProps, IsOption } from '../interface';
 const Question: React.FC<IsQuestionProps> = (props) => {
-  const [choice, setChoice] = React.useState<IsOption>();
+  const [choice, setChoice] = React.useState<IsOption | undefined>();
 
   // set user choice on click
   function handleChoice(event: React.MouseEvent<HTMLButtonElement>) {
@@ -11,13 +11,19 @@ const Question: React.FC<IsQuestionProps> = (props) => {
     // click allowed if quiz is completed (check answers button clicked)
     if (!props.quiz_completed) {
       const target = event.target as HTMLButtonElement;
-      setChoice(target.value);
+      const selectedOption: IsOption = {
+        option: target.value || '',
+        category: target.dataset.category || ''
+      };
+      console.log('selectedOption', selectedOption);
+      setChoice(selectedOption);
     }
   }
 
   React.useEffect(() => {
     // update quiz object with choice each time the choice state is changed
-    props.updateUserChoice(props.id, choice.option);
+
+    props.updateUserChoice(props.id, choice);
   }, [choice]);
 
   const answersElements = props.options?.map((answer) => {
@@ -25,20 +31,11 @@ const Question: React.FC<IsQuestionProps> = (props) => {
     function getButtonStyle(): string {
       let style = '';
       if (!props.quiz_completed) {
-        if (answer.option === choice.option) {
+        if (answer.option === choice?.option) {
           style = 'active';
         }
       } else {
         style = 'desactive ';
-        /*
-        if (answer === props.correct_answer) {
-          style += 'correct';
-        } else if (answer === props.user_choice) {
-          style += 'wrong';
-        } else {
-          style += 'not-selected';
-        }
-        */
       }
       return style;
     }
@@ -49,6 +46,7 @@ const Question: React.FC<IsQuestionProps> = (props) => {
         onClick={handleChoice}
         value={answer.option}
         className={getButtonStyle()}
+        data-category={answer.category}
       >
         {decode(answer.option)}
       </button>
