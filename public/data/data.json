@@ -1,0 +1,236 @@
+[
+  {
+    "quiz_type": "superhero",
+    "quiz_title": "Superhero Personality Assessment Quiz",
+    "quiz_icon": "superheroes/icon-superhero.jpg",
+    "questions": [
+      {
+        "question": "What is your preferred superpower?",
+        "options": [
+          { "category": "A", "option": "Super strength" },
+          { "category": "B", "option": "Telepathy" },
+          { "category": "C", "option": "Flight" },
+          { "category": "D", "option": "Super speed" }
+        ]
+      },
+      {
+        "question": "Which superhero gadget would you choose?",
+        "options": [
+          { "category": "A", "option": "Powerful exoskeleton armor" },
+          { "category": "B", "option": "Utility belt with various tools" },
+          { "category": "C", "option": "Energy shield" },
+          { "category": "D", "option": "Wrist-mounted web-shooters" }
+        ]
+      },
+      {
+        "question": "How would you use your powers for good?",
+        "options": [
+          {
+            "category": "A",
+            "option": "Protecting the innocent and fighting villains"
+          },
+          { "category": "B", "option": "Mentoring and guiding others" },
+          {
+            "category": "C",
+            "option": "Enforcing justice and upholding the law"
+          },
+          {
+            "category": "D",
+            "option": "Using my powers for humanitarian missions"
+          }
+        ]
+      },
+      {
+        "question": "What is your preferred method of transportation?",
+        "options": [
+          { "category": "A", "option": "Leaping and bounding long distances" },
+          { "category": "B", "option": "Teleportation" },
+          { "category": "C", "option": "Sleek and futuristic vehicle" },
+          { "category": "D", "option": "Swinging through the city on webs" }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "category": "A",
+        "title": "The Mighty Protector",
+        "image": "/superheroes/mighty-protector.jpg",
+        "description": "You are a powerhouse of strength and courage. With your incredible might, you protect the innocent and fight against evil forces. Your unwavering determination and indomitable spirit inspire others to believe in the strength of justice."
+      },
+      {
+        "category": "B",
+        "title": "The Mind Maven",
+        "image": "/superheroes/mind-maven.jpg",
+        "description": "You possess incredible mental abilities, allowing you to read minds and tap into the vast knowledge of the universe. As the Mind Maven, you guide and mentor others, using your wisdom and insight to help them navigate through life's challenges."
+      },
+      {
+        "category": "C",
+        "title": "The Soaring Aviator",
+        "image": "/superheroes/soaring-aviator.jpg",
+        "description": "You are blessed with the ability to take flight and soar through the skies. As the Soaring Aviator, you enforce justice and uphold the law, using your aerial prowess to keep the world safe from threats. Your unwavering commitment to truth and order inspires others to strive for a better future."
+      },
+      {
+        "category": "D",
+        "title": "The Speedster",
+        "image": "/superheroes/speedster.jpg",
+        "description": "You possess lightning-fast speed, allowing you to zip through life with incredible agility. As the Speedster, you utilize your powers for humanitarian missions, helping those in need and making a positive impact on the world. Your selflessness and quick thinking make you a true hero."
+      }
+    ],
+    "points": [
+      { "category": "A", "point": 5 },
+      { "category": "B", "point": 3 },
+      { "category": "C", "point": 2 },
+      { "category": "D", "point": 1 }
+    ]
+  },
+  {
+    "quiz_type": "star_wars",
+    "quiz_title": "Star Wars Character Quiz",
+    "quiz_icon": "starwars/icon-starwars.jpg",
+    "questions": [
+      {
+        "question": "Which aspect of the Force appeals to you the most?",
+        "options": [
+          { "category": "A", "option": "Wisdom and knowledge" },
+          { "category": "B", "option": "Power and control" },
+          { "category": "C", "option": "Peace and harmony" },
+          { "category": "D", "option": "Passion and emotion" }
+        ]
+      },
+      {
+        "question": "Which lightsaber color would you wield?",
+        "options": [
+          { "category": "A", "option": "Blue" },
+          { "category": "B", "option": "Red" },
+          { "category": "C", "option": "Green" },
+          { "category": "D", "option": "Purple" }
+        ]
+      },
+      {
+        "question": "What is your preferred method of combat?",
+        "options": [
+          { "category": "A", "option": "Strategic lightsaber dueling" },
+          { "category": "B", "option": "Unleashing powerful Force abilities" },
+          { "category": "C", "option": "Defensive lightsaber techniques" },
+          { "category": "D", "option": "Aggressive lightsaber techniques" }
+        ]
+      },
+      {
+        "question": "How would you describe your personality?",
+        "options": [
+          { "category": "A", "option": "Calm and collected" },
+          { "category": "B", "option": "Ambitious and driven" },
+          { "category": "C", "option": "Nurturing and empathetic" },
+          { "category": "D", "option": "Passionate and impulsive" }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "category": "A",
+        "title": "The Wise Master",
+        "image": "/starwars/wise-master.jpg",
+        "description": "You possess great wisdom and knowledge of the Force. Like a Jedi Master, you value understanding and seek to bring balance to the galaxy. Your calm demeanor and strategic approach make you a respected leader."
+      },
+      {
+        "category": "B",
+        "title": "The Dark Lord",
+        "image": "/starwars/dark-lord.jpg",
+        "description": "You are drawn to the dark side of the Force, seeking power and control. As a Sith Lord, you are ambitious and driven, willing to do whatever it takes to achieve your goals. Your determination and cunning make you a formidable adversary."
+      },
+      {
+        "category": "C",
+        "title": "The Peaceful Guardian",
+        "image": "/starwars/peaceful-guardian.jpg",
+        "description": "You embody the ideals of peace and harmony. Like a Jedi Guardian, you use your skills with a lightsaber to defend the innocent and protect the galaxy from threats. Your nurturing nature and empathy make you a reliable and compassionate ally."
+      },
+      {
+        "category": "D",
+        "title": "The Passionate Knight",
+        "image": "/starwars/passionate-knight.jpg",
+        "description": "You are driven by passion and emotion, embracing the intensity of the Force. As a Jedi Knight, you channel your emotions into your actions, fighting for what you believe in. Your fiery spirit and impulsiveness make you a force to be reckoned with."
+      }
+    ],
+    "points": [
+      { "category": "A", "point": 5 },
+      { "category": "B", "point": 3 },
+      { "category": "C", "point": 2 },
+      { "category": "D", "point": 1 }
+    ]
+  },
+  {
+    "quiz_type": "lord_of_the_rings",
+    "quiz_title": "Lord of the Rings Character Quiz",
+    "quiz_icon": "lotr/icon-lotr.jpg",
+    "questions": [
+      {
+        "question": "Which race of Middle-earth do you feel most connected to?",
+        "options": [
+          { "category": "A", "option": "Elves" },
+          { "category": "B", "option": "Dwarves" },
+          { "category": "C", "option": "Humans" },
+          { "category": "D", "option": "Hobbits" }
+        ]
+      },
+      {
+        "question": "What is your preferred weapon of choice?",
+        "options": [
+          { "category": "A", "option": "Bow and arrows" },
+          { "category": "B", "option": "Axe and hammer" },
+          { "category": "C", "option": "Sword" },
+          { "category": "D", "option": "Slingshot and stones" }
+        ]
+      },
+      {
+        "question": "How would you describe your personality?",
+        "options": [
+          { "category": "A", "option": "Graceful and wise" },
+          { "category": "B", "option": "Determined and loyal" },
+          { "category": "C", "option": "Courageous and noble" },
+          { "category": "D", "option": "Cheerful and adventurous" }
+        ]
+      },
+      {
+        "question": "Which location in Middle-earth would you most like to visit?",
+        "options": [
+          { "category": "A", "option": "Rivendell" },
+          { "category": "B", "option": "Moria" },
+          { "category": "C", "option": "Gondor" },
+          { "category": "D", "option": "The Shire" }
+        ]
+      }
+    ],
+    "results": [
+      {
+        "category": "A",
+        "title": "The Elven Guardian",
+        "image": "/lotr/elven-guardian.jpg",
+        "description": "You are a graceful and wise being, deeply connected to nature and the power of the Elves. As an Elven Guardian, you possess incredible archery skills and are known for your wisdom and insight. Your presence brings a sense of tranquility and hope."
+      },
+      {
+        "category": "B",
+        "title": "The Dwarven Warrior",
+        "image": "/lotr/dwarven-warrior.jpg",
+        "description": "You are a determined and loyal warrior, hailing from the noble race of Dwarves. With your mighty axe or hammer in hand, you fearlessly face any challenge. Your loyalty and steadfastness make you a trusted companion and protector."
+      },
+      {
+        "category": "C",
+        "title": "The Human Knight",
+        "image": "/lotr/human-knight.jpg",
+        "description": "You embody courage and nobility, belonging to the race of Men. As a Human Knight, you wield a sword with honor and fight for justice. Your bravery and leadership inspire others to stand against darkness and fight for a better future."
+      },
+      {
+        "category": "D",
+        "title": "The Hobbit Adventurer",
+        "image": "/lotr/hobbit-adventurer.jpg",
+        "description": "You are a cheerful and adventurous Hobbit, known for your love of good food, comfort, and a simple life. Yet, deep inside, you possess a spirit of curiosity and bravery. Your small stature belies your courage and resourcefulness."
+      }
+    ],
+    "points": [
+      { "category": "A", "point": 5 },
+      { "category": "B", "point": 3 },
+      { "category": "C", "point": 2 },
+      { "category": "D", "point": 1 }
+    ]
+  }
+]
