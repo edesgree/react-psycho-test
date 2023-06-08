@@ -1,0 +1,78 @@
+{
+  "quiz_title": "Superhero Personality Assessment Quiz",
+  "questions": [
+    {
+      "question": "What is your preferred superpower?",
+      "options": [
+        { "category": "A", "option": "Super strength" },
+        { "category": "B", "option": "Telepathy" },
+        { "category": "C", "option": "Flight" },
+        { "category": "D", "option": "Super speed" }
+      ]
+    },
+    {
+      "question": "Which superhero gadget would you choose?",
+      "options": [
+        { "category": "A", "option": "Powerful exoskeleton armor" },
+        { "category": "B", "option": "Utility belt with various tools" },
+        { "category": "C", "option": "Energy shield" },
+        { "category": "D", "option": "Wrist-mounted web-shooters" }
+      ]
+    },
+    {
+      "question": "How would you use your powers for good?",
+      "options": [
+        {
+          "category": "A",
+          "option": "Protecting the innocent and fighting villains"
+        },
+        { "category": "B", "option": "Mentoring and guiding others" },
+        {
+          "category": "C",
+          "option": "Enforcing justice and upholding the law"
+        },
+        {
+          "category": "D",
+          "option": "Using my powers for humanitarian missions"
+        }
+      ]
+    },
+    {
+      "question": "What is your preferred method of transportation?",
+      "options": [
+        { "category": "A", "option": "Leaping and bounding long distances" },
+        { "category": "B", "option": "Teleportation" },
+        { "category": "C", "option": "Sleek and futuristic vehicle" },
+        { "category": "D", "option": "Swinging through the city on webs" }
+      ]
+    }
+  ],
+  "results": [
+    {
+      "category": "A",
+      "title": "The Mighty Protector",
+      "description": "You are a powerhouse of strength and courage. With your incredible might, you protect the innocent and fight against evil forces. Your unwavering determination and indomitable spirit inspire others to believe in the strength of justice."
+    },
+    {
+      "category": "B",
+      "title": "The Mind Maven",
+      "description": "You possess incredible mental abilities, allowing you to read minds and tap into the vast knowledge of the universe. As the Mind Maven, you guide and mentor others, using your wisdom and insight to help them navigate through life's challenges."
+    },
+    {
+      "category": "C",
+      "title": "The Soaring Aviator",
+      "description": "You are blessed with the ability to take flight and soar through the skies. As the Soaring Aviator, you enforce justice and uphold the law, using your aerial prowess to keep the world safe from threats. Your unwavering commitment to truth and order inspires others to strive for a better future."
+    },
+    {
+      "category": "D",
+      "title": "The Speedster",
+      "description": "You possess lightning-fast speed, allowing you to zip through life with incredible agility. As the Speedster, you utilize your powers for humanitarian missions, helping those in need and making a positive impact on the world. Your selflessness and quick thinking make you a true hero."
+    }
+  ],
+  "points": [
+    { "category": "A", "point": 5 },
+    { "category": "B", "point": 3 },
+    { "category": "C", "point": 2 },
+    { "category": "D", "point": 1 }
+  ]
+}

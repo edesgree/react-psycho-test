@@ -182,5 +182,10 @@
       "description": "Congratulations! You belong to the Social and Empathetic category. You have a natural ability to connect with others on a deep level and understand their emotions. You prioritize building and nurturing relationships, and your empathetic nature allows you to provide support and guidance to those around you. Your collaborative spirit and genuine interest in others make you a cherished friend and confidant."
     }
   ],
-  "points": [{ "A": 4 }, { "B": 3 }, { "C": 2 }, { "D": 1 }]
+  "points": [
+    { "category": "A", "point": 5 },
+    { "category": "B", "point": 3 },
+    { "category": "C", "point": 2 },
+    { "category": "D", "point": 1 }
+  ]
 }
