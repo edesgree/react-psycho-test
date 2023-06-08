@@ -1,16 +1,19 @@
+export interface IntroProps {
+  start: () => void;
+}
 export interface IsQuestionProps {
   id: string;
   question: string;
-  user_choice: string | null;
+  user_choice: IsOption | null;
   options: IsOption[];
   quiz_completed: boolean;
-  updateUserChoice: (id: string, choice: string) => void;
+  updateUserChoice: (id: string, choice: IsOption) => void;
 }
 export interface IsQuizData {
   id: string;
   question: string;
   options: IsOption[];
-  user_choice: string | null;
+  user_choice: IsOption | null;
 }
 export interface IsOption {
   category: string;
@@ -28,4 +31,9 @@ export interface IsQuiz {
 export interface IsResult {
   category: string;
   description: string;
+  title: string;
+}
+export interface IsPoint {
+  category: string;
+  point: number;
 }
