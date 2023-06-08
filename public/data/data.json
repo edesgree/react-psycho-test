@@ -128,27 +128,70 @@
     "results": [
       {
         "category": "A",
-        "title": "The Wise Master",
-        "image": "/starwars/wise-master.jpg",
-        "description": "You possess great wisdom and knowledge of the Force. Like a Jedi Master, you value understanding and seek to bring balance to the galaxy. Your calm demeanor and strategic approach make you a respected leader."
+        "title": "The Jedi Master",
+        "image": "/starwars/jedi-master.jpg",
+        "description": "You are a wise and calm individual, in tune with the light side of the Force. As a Jedi Master, you possess exceptional telekinetic abilities and are known for your deep understanding of the Force. Your wisdom and serenity guide others on the path of righteousness.",
+        "keywords": [
+          "wise",
+          "calm",
+          "Jedi",
+          "telekinetic",
+          "light side",
+          "Force",
+          "wisdom",
+          "serenity",
+          "righteousness"
+        ]
       },
       {
         "category": "B",
-        "title": "The Dark Lord",
-        "image": "/starwars/dark-lord.jpg",
-        "description": "You are drawn to the dark side of the Force, seeking power and control. As a Sith Lord, you are ambitious and driven, willing to do whatever it takes to achieve your goals. Your determination and cunning make you a formidable adversary."
+        "title": "The Sith Lord",
+        "image": "/starwars/sith-lord.jpg",
+        "description": "You are an ambitious and cunning individual, embracing the dark side of the Force. As a Sith Lord, you wield the power of mind control and seek to impose your will on the galaxy. Your hunger for power and mastery over the Force knows no bounds.",
+        "keywords": [
+          "ambitious",
+          "cunning",
+          "Sith",
+          "dark side",
+          "mind control",
+          "power",
+          "mastery",
+          "galaxy"
+        ]
       },
       {
         "category": "C",
-        "title": "The Peaceful Guardian",
-        "image": "/starwars/peaceful-guardian.jpg",
-        "description": "You embody the ideals of peace and harmony. Like a Jedi Guardian, you use your skills with a lightsaber to defend the innocent and protect the galaxy from threats. Your nurturing nature and empathy make you a reliable and compassionate ally."
+        "title": "The Adventurous Scoundrel",
+        "image": "/starwars/adventurous-scoundrel.jpg",
+        "description": "You have an adventurous and reckless spirit, always seeking excitement and thrills in the galaxy. As an Adventurous Scoundrel, you rely on your quick reflexes and teleportation abilities to navigate dangerous situations. Your charm and roguish nature make you a beloved character.",
+        "keywords": [
+          "adventurous",
+          "reckless",
+          "Scoundrel",
+          "quick reflexes",
+          "teleportation",
+          "dangerous situations",
+          "charm",
+          "roguish"
+        ]
       },
       {
         "category": "D",
-        "title": "The Passionate Knight",
-        "image": "/starwars/passionate-knight.jpg",
-        "description": "You are driven by passion and emotion, embracing the intensity of the Force. As a Jedi Knight, you channel your emotions into your actions, fighting for what you believe in. Your fiery spirit and impulsiveness make you a force to be reckoned with."
+        "title": "The Honorable Knight",
+        "image": "/starwars/honorable-knight.jpg",
+        "description": "You are a loyal and honorable individual, dedicated to upholding justice and defending the weak. As an Honorable Knight, you excel in lightsaber combat and fight for the ideals of the Jedi Order. Your unwavering loyalty and sense of honor inspire others to fight for what is right.",
+        "keywords": [
+          "loyal",
+          "honorable",
+          "Knight",
+          "upholding justice",
+          "defending the weak",
+          "lightsaber combat",
+          "Jedi Order",
+          "loyalty",
+          "honor",
+          "inspire"
+        ]
       }
     ],
     "points": [
@@ -198,6 +241,60 @@
           { "category": "C", "option": "Gondor" },
           { "category": "D", "option": "The Shire" }
         ]
+      },
+      {
+        "question": "If you could possess one of the Rings of Power, which would you choose?",
+        "options": [
+          { "category": "A", "option": "Ring of Power" },
+          { "category": "B", "option": "Ring of Healing" },
+          { "category": "C", "option": "Ring of Knowledge" },
+          { "category": "D", "option": "Ring of Stealth" }
+        ]
+      },
+      {
+        "question": "Which character from the Fellowship of the Ring do you admire the most?",
+        "options": [
+          { "category": "A", "option": "Gandalf" },
+          { "category": "B", "option": "Gimli" },
+          { "category": "C", "option": "Aragorn" },
+          { "category": "D", "option": "Frodo" }
+        ]
+      },
+      {
+        "question": "What is your favorite aspect of Middle-earth's lore and history?",
+        "options": [
+          { "category": "A", "option": "Legends and mythologies" },
+          { "category": "B", "option": "The craftsmanship of the Dwarves" },
+          { "category": "C", "option": "The rise and fall of kingdoms" },
+          { "category": "D", "option": "The simple joys of Hobbit life" }
+        ]
+      },
+      {
+        "question": "In a dire situation, what would be your first instinct?",
+        "options": [
+          { "category": "A", "option": "Seek guidance from nature" },
+          { "category": "B", "option": "Charge into battle" },
+          { "category": "C", "option": "Take command and lead" },
+          { "category": "D", "option": "Think of a clever plan" }
+        ]
+      },
+      {
+        "question": "Which of the Rings of Power would you trust the most?",
+        "options": [
+          { "category": "A", "option": "Narya" },
+          { "category": "B", "option": "Nenya" },
+          { "category": "C", "option": "Vilya" },
+          { "category": "D", "option": "The One Ring" }
+        ]
+      },
+      {
+        "question": "If you were granted one wish in Middle-earth, what would it be?",
+        "options": [
+          { "category": "A", "option": "Eternal peace and harmony" },
+          { "category": "B", "option": "Unrivaled strength and power" },
+          { "category": "C", "option": "Wisdom and knowledge beyond measure" },
+          { "category": "D", "option": "Endless joy and merriment" }
+        ]
       }
     ],
     "results": [
@@ -205,25 +302,75 @@
         "category": "A",
         "title": "The Elven Guardian",
         "image": "/lotr/elven-guardian.jpg",
-        "description": "You are a graceful and wise being, deeply connected to nature and the power of the Elves. As an Elven Guardian, you possess incredible archery skills and are known for your wisdom and insight. Your presence brings a sense of tranquility and hope."
+        "description": "You are a graceful and wise being, deeply connected to nature and the power of the Elves. As an Elven Guardian, you possess incredible archery skills and are known for your wisdom and insight. Your presence brings a sense of tranquility and hope.",
+        "keywords": [
+          "graceful",
+          "wise",
+          "nature",
+          "Elves",
+          "archery",
+          "wisdom",
+          "insight",
+          "tranquility",
+          "hope"
+        ]
       },
       {
         "category": "B",
         "title": "The Dwarven Warrior",
         "image": "/lotr/dwarven-warrior.jpg",
-        "description": "You are a determined and loyal warrior, hailing from the noble race of Dwarves. With your mighty axe or hammer in hand, you fearlessly face any challenge. Your loyalty and steadfastness make you a trusted companion and protector."
+        "description": "You are a determined and loyal warrior, hailing from the noble race of Dwarves. With your mighty axe or hammer in hand, you fearlessly face any challenge. Your loyalty and steadfastness make you a trusted companion and protector.",
+        "keywords": [
+          "determined",
+          "loyal",
+          "warrior",
+          "Dwarves",
+          "axe",
+          "hammer",
+          "fearless",
+          "loyalty",
+          "steadfastness",
+          "companion",
+          "protector"
+        ]
       },
       {
         "category": "C",
         "title": "The Human Knight",
         "image": "/lotr/human-knight.jpg",
-        "description": "You embody courage and nobility, belonging to the race of Men. As a Human Knight, you wield a sword with honor and fight for justice. Your bravery and leadership inspire others to stand against darkness and fight for a better future."
+        "description": "You embody courage and nobility, belonging to the race of Men. As a Human Knight, you wield a sword with honor and fight for justice. Your bravery and leadership inspire others to stand against darkness and fight for a better future.",
+        "keywords": [
+          "courage",
+          "nobility",
+          "Men",
+          "sword",
+          "honor",
+          "justice",
+          "bravery",
+          "leadership",
+          "inspire",
+          "darkness",
+          "future"
+        ]
       },
       {
         "category": "D",
         "title": "The Hobbit Adventurer",
         "image": "/lotr/hobbit-adventurer.jpg",
-        "description": "You are a cheerful and adventurous Hobbit, known for your love of good food, comfort, and a simple life. Yet, deep inside, you possess a spirit of curiosity and bravery. Your small stature belies your courage and resourcefulness."
+        "description": "You are a cheerful and adventurous Hobbit, known for your love of good food, comfort, and a simple life. Yet, deep inside, you possess a spirit of curiosity and bravery. Your small stature belies your courage and resourcefulness.",
+        "keywords": [
+          "cheerful",
+          "adventurous",
+          "Hobbit",
+          "good food",
+          "comfort",
+          "simple life",
+          "curiosity",
+          "bravery",
+          "small stature",
+          "courage",
+          "resourcefulness"
+        ]
       }
     ],
     "points": [

@@ -1,11 +1,12 @@
 import React from 'react';
 import Question from './Question';
 import Result from './Result';
+import Loading from './ui/Loading';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
 
 import {
-  IsQuiz,
+  IsQuizProps,
   IsQuizData,
   IsOption,
   IsQuestion,
@@ -13,12 +14,7 @@ import {
   IsResult
 } from '../interface';
 
-const Quiz: React.FC<IsQuiz> = ({ quizInfo, resetGame }) => {
-  console.log('props.quizInfo', quizInfo);
-  const [quizTitle, setQuizTitle] = React.useState<string>('');
-  const [points, setPoints] = React.useState<IsPoint[]>();
-  const [results, setResults] = React.useState<IsResult[]>();
-
+const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [quizCompleted, setQuizCompleted] = React.useState<boolean>(false);
@@ -27,17 +23,12 @@ const Quiz: React.FC<IsQuiz> = ({ quizInfo, resetGame }) => {
   const [gameStartCount, setGameStartCount] = React.useState<number>(0);
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
 
-  const nbQuestions = 10;
-  //const imagePath = require('path/to/image').default;
-  console.log('test');
-  const fetchData = () => {
-    // get questions
-    console.log('quizInfo.questions', quizInfo.questions);
-    const dataQuestions: IsQuestion[] = quizInfo.questions;
+  const nbQuestions = Math.min(3, quizSelected.questions.length);
 
+  const fetchQuizData = () => {
     // store question data in a custom object
     const customData: IsQuizData[] = [];
-    dataQuestions.slice(0, nbQuestions).forEach((item: IsQuestion) => {
+    quizSelected.questions.slice(0, nbQuestions).forEach((item: IsQuestion) => {
       customData.push({
         id: nanoid(),
         options: randomizeAnswers(item.options),
@@ -48,17 +39,14 @@ const Quiz: React.FC<IsQuiz> = ({ quizInfo, resetGame }) => {
     // set Quiz Data with this custom object
     setQuizData(customData);
     setLoading(false);
-
-    console.log('customData', customData);
   };
   React.useEffect(() => {
     console.log('loading state', loading);
   }, [loading]);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
-    console.log('quizInfo', quizInfo);
     setLoading(true);
-    fetchData();
+    fetchQuizData();
     setQuizCompleted(false);
     // reset score
     resetScore();
@@ -84,9 +72,11 @@ const Quiz: React.FC<IsQuiz> = ({ quizInfo, resetGame }) => {
     quizData.forEach((question) => {
       console.log('question', question);
       // assign points for each category
-      for (let i = 0; i < quizInfo.points?.length; i++) {
-        if (question.user_choice?.category === quizInfo.points[i]?.category) {
-          currentScore[i].point += quizInfo.points[i]?.point;
+      for (let i = 0; i < quizSelected.points?.length; i++) {
+        if (
+          question.user_choice?.category === quizSelected.points[i]?.category
+        ) {
+          currentScore[i].point += quizSelected.points[i]?.point;
         }
       }
       // check if all questions have been answered
@@ -162,7 +152,7 @@ const Quiz: React.FC<IsQuiz> = ({ quizInfo, resetGame }) => {
   const totalScoreSorted = totalScore?.sort((a, b) => b.point - a.point)[0];
 
   // results text rendering
-  const resultsElements = quizInfo.results
+  const resultsElements = quizSelected.results
     ?.filter((cat: IsResult) => cat.category === totalScoreSorted?.category)
     .map((item: IsResult) => {
       return (
@@ -179,16 +169,16 @@ const Quiz: React.FC<IsQuiz> = ({ quizInfo, resetGame }) => {
   return (
     <section className="quiz">
       {loading ? (
-        'loading...'
+        <Loading />
       ) : (
         <div>
           <img
             className="img-responsive"
             width={100}
-            src={`img/${quizInfo.quiz_icon}`}
-            alt={quizInfo.quiz_title}
+            src={`img/${quizSelected.quiz_icon}`}
+            alt={quizSelected.quiz_title}
           />
-          <h2>{quizInfo.quiz_title}</h2>
+          <h2>{quizSelected.quiz_title}</h2>
           {!quizCompleted && (
             <div className="quiz-questions">{questionsElements}</div>
           )}

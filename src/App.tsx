@@ -2,7 +2,7 @@ import React from 'react';
 
 import Intro from './components/Intro';
 import Quiz from './components/Quiz';
-
+import Loading from './components/ui/Loading';
 import { IsQuiz } from './interface';
 function App() {
   const [gameStart, setGameStart] = React.useState<boolean>(false);
@@ -47,7 +47,7 @@ function App() {
         <h1>Psy test</h1>
       </header>
       {loading ? (
-        'loading...'
+        <Loading />
       ) : (
         <>
           {!gameStart && (
@@ -60,7 +60,9 @@ function App() {
               />
             </>
           )}
-          {gameStart && <Quiz quizInfo={quizSelected} resetGame={resetGame} />}
+          {gameStart && (
+            <Quiz quizSelected={quizSelected} resetGame={resetGame} />
+          )}
         </>
       )}
     </main>
