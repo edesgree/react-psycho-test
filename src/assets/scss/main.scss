@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-   
+    font-family: $family-primary;
   }
 body {
     align-items: center;
@@ -10,6 +10,7 @@ body {
     background-repeat: no-repeat, no-repeat;
     display: flex;
     font-family: $family-primary;
+    font-weight: $weight-normal;
     justify-content: center;
     margin: 0;
     min-height: 100vh;
@@ -18,7 +19,6 @@ body {
   main {
     align-items: center;
     animation: grow0 1.5s forwards;
-    background-color: $beige;
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -48,8 +48,8 @@ body {
     color:$yellow-darker;
     cursor: pointer;
     font-size: 1em;
-    font-weight: $weight-bold;
-    padding: 10px 20px;
+    font-weight: $weight-medium;
+    padding:  20px;
     transition: all 0.2s ease-in-out;
     &:hover {
         background: darken($yellow, 20%);
@@ -72,7 +72,7 @@ body {
     &.desactive {
       &,
       &:hover {
-        background-color: grey;
+        background-color: $grey;
         border-color: $grey-dark;
         color: $grey-darker;
       }
@@ -85,10 +85,10 @@ body {
     gap: 30px;
     margin-bottom: 40px;
     .question {
-      border-bottom: solid 1px $lighter-blue;
+      border-bottom: solid 4px $dark;
       padding-bottom: 30px;
       .question-title {
-        font-weight: bold;
+        font-weight: $weight-bold;
         margin-top: 0;
       }
       .question-answers {
@@ -103,15 +103,38 @@ body {
     }
   }
   h1 {
-    background: -webkit-linear-gradient(left, $red, $green);
-    background: -o-linear-gradient(right, $red, $green);
-    background: -moz-linear-gradient(right, $red, $green);
-    background: linear-gradient(to right, $red, $green);
-    -webkit-background-clip: text;
+    color:$blue;
     font-size: 4em;
     margin-top: 0;
-    -webkit-text-fill-color: transparent;
+  }
+  h2{
+    font-weight: $weight-bold;
+    margin-bottom: 40px;
+  }
+  .title{
+    background:white;
+    border: 6px solid $dark;
+    border-radius: 15px;
+    color: $red;
+    font-size: 48px;
+    font-weight: $weight-bold;
+    padding: 20px;
+    position: relative;
+    text-align: center;
+    text-shadow: 5px 5px 0px $dark;
+    span{
+    color: $dark;
+    display: block;
+    font-size: 0.5em;
+    font-weight: $weight-bold;
+       text-shadow: none;
+    }
   }
   .error{
     color:$red;
+  }
+  .bold{
+    font-size: larger;
+    font-weight: $weight-bold;
+    line-height: 1.5em;
   }

@@ -13,7 +13,7 @@ import {
 } from '../interface';
 console.log('localQuizData', localQuizData);
 
-const Quiz = (props) => {
+const Quiz = () => {
   const [quizTitle, setQuizTitle] = React.useState<string>('');
   const [points, setPoints] = React.useState<IsPoint[]>();
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
@@ -202,8 +202,7 @@ const Quiz = (props) => {
             )}
             {quizCompleted && (
               <div>
-                <h3>Your results :</h3>
-                {totalScoreElements}
+                {/*totalScoreElements*/}
                 {resultsElements}
 
                 <button className="primary" onClick={handleRestart}>
