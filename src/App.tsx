@@ -1,5 +1,4 @@
 import React from 'react';
-
 import Intro from './components/Intro';
 import Quiz from './components/Quiz';
 import Loading from './components/ui/Loading';
@@ -9,7 +8,9 @@ function App() {
   const [quizInfo, setQuizInfo] = React.useState<IsQuiz[]>();
   const [quizSelected, setQuizSelected] = React.useState<IsQuiz>();
   const [choice, setChoice] = React.useState<string | undefined>();
+  const [loading, setLoading] = React.useState<boolean>(true);
   const QUESTIONS_NB = 8;
+
   function startGame(quizTypeChosen: string): void {
     setGameStart(true);
     setQuizSelected(
@@ -22,12 +23,9 @@ function App() {
     // reset quiz selected and choice
     setQuizSelected(undefined);
     setChoice(undefined);
-
-    console.log('quizSelected', quizSelected);
   }
 
-  //grab data from data/data.json file
-  const [loading, setLoading] = React.useState<boolean>(true);
+  //grab data from local data/data.json file
   const fetchData = () => {
     fetch('./data/data.json')
       .then((response) => response.json())
@@ -41,13 +39,11 @@ function App() {
   React.useEffect(() => {
     fetchData();
   }, []);
-  React.useEffect(() => {
-    console.log('choice', choice);
-  }, [choice]);
+
   return (
     <main className="App">
       <header>
-        <h1>Psychologeek</h1>
+        <h1>Psy test</h1>
       </header>
       <div className="content">
         {loading ? (
@@ -66,14 +62,6 @@ function App() {
             )}
             {gameStart && quizSelected && (
               <Quiz
-                /*  
-            quiz_type={quizSelected.quiz_type}
-              quiz_title={quizSelected.quiz_title}
-              quiz_icon={quizSelected.quiz_icon}
-              questions={quizSelected.questions}
-              results={quizSelected.results}
-              points={quizSelected.points}
-              */
                 {...quizSelected}
                 resetGame={resetGame}
                 question_nb={QUESTIONS_NB}

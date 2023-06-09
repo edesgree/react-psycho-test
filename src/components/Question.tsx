@@ -15,7 +15,7 @@ const Question: React.FC<IsQuestionProps> = (props) => {
         option: target.value || '',
         category: target.dataset.category || ''
       };
-      console.log('selectedOption', selectedOption);
+
       setChoice(selectedOption);
     }
   }

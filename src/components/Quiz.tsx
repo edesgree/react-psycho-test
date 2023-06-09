@@ -20,8 +20,6 @@ const Quiz: React.FC<IsQuizProps> = ({
   ...quizSelected
 }) => {
   const { quiz_title, quiz_icon, questions, results, points } = quizSelected;
-
-  console.log('quizSelected', quizSelected);
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
   const [quizCompleted, setQuizCompleted] = React.useState<boolean>(false);
@@ -30,9 +28,6 @@ const Quiz: React.FC<IsQuizProps> = ({
   const [gameStartCount, setGameStartCount] = React.useState<number>(0);
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
 
-  React.useEffect(() => {
-    console.log('loading state', loading);
-  }, [loading]);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
     const nbQuestions: number | undefined = Math.min(
@@ -79,7 +74,6 @@ const Quiz: React.FC<IsQuizProps> = ({
       { category: 'D', point: 0 }
     ];
     quizData.forEach((question) => {
-      console.log('question', question);
       // assign points for each category
       for (let i = 0; i < points?.length; i++) {
         if (question.user_choice?.category === points[i]?.category) {
@@ -129,7 +123,6 @@ const Quiz: React.FC<IsQuizProps> = ({
         return data.id === id ? { ...data, user_choice: choice } : data;
       })
     );
-    console.log('quizData after user choice', quizData);
   }
 
   // question elements rendering
@@ -146,19 +139,8 @@ const Quiz: React.FC<IsQuizProps> = ({
       />
     );
   });
-  // total score rendering
-  /*
-  const totalScoreElements = totalScore?.map((item) => {
-    return (
-      <div key={nanoid()}>
-        <p>
-          {item.category} : {item.point}
-        </p>
-      </div>
-    );
-  });
-*/
-  // your personal score rendering
+
+  // personal score rendering
   const totalScoreSorted = totalScore?.sort((a, b) => b.point - a.point)[0];
 
   // results text rendering
@@ -175,7 +157,7 @@ const Quiz: React.FC<IsQuizProps> = ({
         />
       );
     });
-  console.log('resultsElements', resultsElements);
+
   return (
     <section className="quiz">
       {loading ? (
@@ -205,9 +187,7 @@ const Quiz: React.FC<IsQuizProps> = ({
             )}
             {quizCompleted && (
               <div>
-                {/*totalScoreElements*/}
                 {resultsElements}
-
                 <button className="primary" onClick={handleRestart}>
                   Start new test
                 </button>
