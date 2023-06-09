@@ -1,7 +1,7 @@
 [
   {
     "quiz_type": "superhero",
-    "quiz_title": "Superhero Personality Assessment Quiz",
+    "quiz_title": "What kind of super hero are you?",
     "quiz_icon": "superheroes/icon-superhero.jpg",
     "questions": [
       {
@@ -48,6 +48,111 @@
           { "category": "C", "option": "Sleek and futuristic vehicle" },
           { "category": "D", "option": "Swinging through the city on webs" }
         ]
+      },
+      {
+        "question": "What is your greatest personal value?",
+        "options": [
+          { "category": "A", "option": "Strength and courage" },
+          { "category": "B", "option": "Knowledge and wisdom" },
+          { "category": "C", "option": "Justice and order" },
+          { "category": "D", "option": "Selflessness and compassion" }
+        ]
+      },
+      {
+        "question": "How do you handle difficult moral choices?",
+        "options": [
+          {
+            "category": "A",
+            "option": "Follow my instincts and do what feels right"
+          },
+          {
+            "category": "B",
+            "option": "Analyze the situation and make a logical decision"
+          },
+          {
+            "category": "C",
+            "option": "Seek advice from trusted mentors or allies"
+          },
+          {
+            "category": "D",
+            "option": "Consider the greater good and act accordingly"
+          }
+        ]
+      },
+      {
+        "question": "What motivates you to be a hero?",
+        "options": [
+          {
+            "category": "A",
+            "option": "Protecting loved ones and making the world safer"
+          },
+          {
+            "category": "B",
+            "option": "Helping others reach their full potential"
+          },
+          {
+            "category": "C",
+            "option": "Bringing justice to the world and fighting injustice"
+          },
+          {
+            "category": "D",
+            "option": "Making a positive impact on people's lives"
+          }
+        ]
+      },
+      {
+        "question": "How do you approach teamwork and collaboration?",
+        "options": [
+          {
+            "category": "A",
+            "option": "Take charge and lead the team to victory"
+          },
+          {
+            "category": "B",
+            "option": "Offer guidance and support to team members"
+          },
+          {
+            "category": "C",
+            "option": "Adhere to rules and coordinate efforts efficiently"
+          },
+          {
+            "category": "D",
+            "option": "Adapt quickly and assist others whenever needed"
+          }
+        ]
+      },
+      {
+        "question": "What is your preferred fighting style?",
+        "options": [
+          { "category": "A", "option": "Powerful and direct attacks" },
+          { "category": "B", "option": "Strategic planning and using tactics" },
+          { "category": "C", "option": "Agile maneuvers and acrobatics" },
+          {
+            "category": "D",
+            "option": "Speed and agility combined with quick strikes"
+          }
+        ]
+      },
+      {
+        "question": "How do you handle adversity and setbacks?",
+        "options": [
+          {
+            "category": "A",
+            "option": "Push through with sheer determination and strength"
+          },
+          {
+            "category": "B",
+            "option": "Analyze the situation and find a clever solution"
+          },
+          {
+            "category": "C",
+            "option": "Stay focused and follow established protocols"
+          },
+          {
+            "category": "D",
+            "option": "Adapt quickly and use speed to overcome challenges"
+          }
+        ]
       }
     ],
     "results": [
@@ -55,25 +160,29 @@
         "category": "A",
         "title": "The Mighty Protector",
         "image": "/superheroes/mighty-protector.jpg",
-        "description": "You are a powerhouse of strength and courage. With your incredible might, you protect the innocent and fight against evil forces. Your unwavering determination and indomitable spirit inspire others to believe in the strength of justice."
+        "description": "You are a powerhouse of strength and courage. With your incredible might, you protect the innocent and fight against evil forces. Your unwavering determination and indomitable spirit inspire others to believe in the strength of justice.",
+        "keywords": ["strength", "courage", "protector", "justice"]
       },
       {
         "category": "B",
         "title": "The Mind Maven",
         "image": "/superheroes/mind-maven.jpg",
-        "description": "You possess incredible mental abilities, allowing you to read minds and tap into the vast knowledge of the universe. As the Mind Maven, you guide and mentor others, using your wisdom and insight to help them navigate through life's challenges."
+        "description": "You possess incredible mental abilities, allowing you to read minds and tap into the vast knowledge of the universe. As the Mind Maven, you guide and mentor others, using your wisdom and insight to help them navigate through life's challenges.",
+        "keywords": ["mental abilities", "knowledge", "wisdom", "mentor"]
       },
       {
         "category": "C",
         "title": "The Soaring Aviator",
         "image": "/superheroes/soaring-aviator.jpg",
-        "description": "You are blessed with the ability to take flight and soar through the skies. As the Soaring Aviator, you enforce justice and uphold the law, using your aerial prowess to keep the world safe from threats. Your unwavering commitment to truth and order inspires others to strive for a better future."
+        "description": "You are blessed with the ability to take flight and soar through the skies. As the Soaring Aviator, you enforce justice and uphold the law, using your aerial prowess to keep the world safe from threats. Your unwavering commitment to truth and order inspires others to strive for a better future.",
+        "keywords": ["flight", "justice", "law", "aviator"]
       },
       {
         "category": "D",
         "title": "The Speedster",
         "image": "/superheroes/speedster.jpg",
-        "description": "You possess lightning-fast speed, allowing you to zip through life with incredible agility. As the Speedster, you utilize your powers for humanitarian missions, helping those in need and making a positive impact on the world. Your selflessness and quick thinking make you a true hero."
+        "description": "You possess lightning-fast speed, allowing you to zip through life with incredible agility. As the Speedster, you utilize your powers for humanitarian missions, helping those in need and making a positive impact on the world. Your selflessness and quick thinking make you a true hero.",
+        "keywords": ["speed", "agility", "humanitarian", "hero"]
       }
     ],
     "points": [
@@ -85,7 +194,7 @@
   },
   {
     "quiz_type": "star_wars",
-    "quiz_title": "Star Wars Character Quiz",
+    "quiz_title": "Who are you in Star Wars?",
     "quiz_icon": "starwars/icon-starwars.jpg",
     "questions": [
       {
@@ -122,6 +231,60 @@
           { "category": "B", "option": "Ambitious and driven" },
           { "category": "C", "option": "Nurturing and empathetic" },
           { "category": "D", "option": "Passionate and impulsive" }
+        ]
+      },
+      {
+        "question": "What motivates you in life?",
+        "options": [
+          { "category": "A", "option": "Knowledge and understanding" },
+          { "category": "B", "option": "Dominance and power" },
+          { "category": "C", "option": "Harmony and balance" },
+          { "category": "D", "option": "Love and personal connections" }
+        ]
+      },
+      {
+        "question": "Which Star Wars planet would you most like to visit?",
+        "options": [
+          { "category": "A", "option": "Coruscant" },
+          { "category": "B", "option": "Mustafar" },
+          { "category": "C", "option": "Endor" },
+          { "category": "D", "option": "Tatooine" }
+        ]
+      },
+      {
+        "question": "Who is your favorite Star Wars villain?",
+        "options": [
+          { "category": "A", "option": "Darth Vader" },
+          { "category": "B", "option": "Emperor Palpatine" },
+          { "category": "C", "option": "Darth Maul" },
+          { "category": "D", "option": "Kylo Ren" }
+        ]
+      },
+      {
+        "question": "What type of starship would you pilot?",
+        "options": [
+          { "category": "A", "option": "Star Destroyer" },
+          { "category": "B", "option": "TIE Fighter" },
+          { "category": "C", "option": "Millennium Falcon" },
+          { "category": "D", "option": "X-wing" }
+        ]
+      },
+      {
+        "question": "Which character trait is most important to you?",
+        "options": [
+          { "category": "A", "option": "Intelligence" },
+          { "category": "B", "option": "Ambition" },
+          { "category": "C", "option": "Compassion" },
+          { "category": "D", "option": "Passion" }
+        ]
+      },
+      {
+        "question": "How do you handle difficult decisions?",
+        "options": [
+          { "category": "A", "option": "Rely on logic and reason" },
+          { "category": "B", "option": "Trust your instincts" },
+          { "category": "C", "option": "Seek advice from others" },
+          { "category": "D", "option": "Follow your heart" }
         ]
       }
     ],
@@ -203,7 +366,7 @@
   },
   {
     "quiz_type": "lord_of_the_rings",
-    "quiz_title": "Lord of the Rings Character Quiz",
+    "quiz_title": "What is your Lord of the Rings lookalike",
     "quiz_icon": "lotr/icon-lotr.jpg",
     "questions": [
       {
