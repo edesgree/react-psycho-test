@@ -69,17 +69,15 @@ const Question: React.FC<IsQuestionProps> = (props) => {
     }
 
     return (
-      <>
-        <button
-          key={nanoid()}
-          onClick={handleChoice}
-          value={answer.option}
-          className={getButtonStyle()}
-          data-category={answer.category}
-        >
-          {decode(answer.option)}
-        </button>
-      </>
+      <button
+        key={nanoid()}
+        onClick={handleChoice}
+        value={answer.option}
+        className={getButtonStyle()}
+        data-category={answer.category}
+      >
+        {decode(answer.option)}
+      </button>
     );
   });
   return (
