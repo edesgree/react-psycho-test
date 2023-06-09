@@ -14,7 +14,11 @@ import {
   IsResult
 } from '../interface';
 
-const Quiz: React.FC<IsQuizProps> = ({ resetGame, ...quizSelected }) => {
+const Quiz: React.FC<IsQuizProps> = ({
+  resetGame,
+  question_nb,
+  ...quizSelected
+}) => {
   const { quiz_title, quiz_icon, questions, results, points } = quizSelected;
 
   console.log('quizSelected', quizSelected);
@@ -31,7 +35,10 @@ const Quiz: React.FC<IsQuizProps> = ({ resetGame, ...quizSelected }) => {
   }, [loading]);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
-    const nbQuestions: number | undefined = Math.min(3, questions.length);
+    const nbQuestions: number | undefined = Math.min(
+      question_nb,
+      questions.length
+    );
     const fetchQuizData = () => {
       // store question data in a custom object
       const customData: IsQuizData[] = [];

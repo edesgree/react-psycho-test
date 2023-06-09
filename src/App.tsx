@@ -9,7 +9,7 @@ function App() {
   const [quizInfo, setQuizInfo] = React.useState<IsQuiz[]>();
   const [quizSelected, setQuizSelected] = React.useState<IsQuiz>();
   const [choice, setChoice] = React.useState<string | undefined>();
-
+  const QUESTIONS_NB = 8;
   function startGame(quizTypeChosen: string): void {
     setGameStart(true);
     setQuizSelected(
@@ -75,6 +75,7 @@ function App() {
               */
               {...quizSelected}
               resetGame={resetGame}
+              question_nb={QUESTIONS_NB}
             />
           )}
         </>

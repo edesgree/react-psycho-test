@@ -32,6 +32,7 @@ export interface IsQuestion {
 }
 export interface IsQuizProps extends IsQuiz {
   resetGame: () => void;
+  question_nb: number;
 }
 export interface IsQuiz {
   quiz_type: string;
