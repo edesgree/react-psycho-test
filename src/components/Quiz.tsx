@@ -163,7 +163,7 @@ const Quiz: React.FC<IsQuizProps> = ({
       {loading ? (
         <Loading />
       ) : (
-        <div>
+        <>
           <img
             className="img-responsive"
             width={100}
@@ -194,7 +194,7 @@ const Quiz: React.FC<IsQuizProps> = ({
               </div>
             )}
           </footer>
-        </div>
+        </>
       )}
     </section>
   );

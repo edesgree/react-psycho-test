@@ -167,13 +167,14 @@ body {
   }
 
   .quiz-selection-list{
-    //same height
     align-items: stretch;
     display: flex;
     flex-direction: column;
     gap:10px;
     // remove bullets
     list-style: none;
+    //same height
+    padding-left: 0;
     li{
       
       width: 100%;

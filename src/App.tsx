@@ -10,6 +10,7 @@ function App() {
   const [choice, setChoice] = React.useState<string | undefined>();
   const [loading, setLoading] = React.useState<boolean>(true);
   const QUESTIONS_NB = 8;
+  const APP_TITLE = 'Mind Quiz';
 
   function startGame(quizTypeChosen: string): void {
     setGameStart(true);
@@ -43,7 +44,7 @@ function App() {
   return (
     <main className="App">
       <header>
-        <h1>Psy test</h1>
+        <h1>{APP_TITLE}</h1>
       </header>
       <div className="content">
         {loading ? (
