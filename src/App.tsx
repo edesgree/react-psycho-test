@@ -3,13 +3,15 @@ import Intro from './components/Intro';
 import Quiz from './components/Quiz';
 import Loading from './components/ui/Loading';
 import { IsQuiz } from './interface';
+import { motion, AnimatePresence } from 'framer-motion';
+
 function App() {
   const [gameStart, setGameStart] = React.useState<boolean>(false);
   const [quizInfo, setQuizInfo] = React.useState<IsQuiz[]>();
   const [quizSelected, setQuizSelected] = React.useState<IsQuiz>();
   const [choice, setChoice] = React.useState<string | undefined>();
   const [loading, setLoading] = React.useState<boolean>(true);
-  const QUESTIONS_NB = 8;
+  const QUESTIONS_NB = 2;
   const APP_TITLE = 'Mind Quiz';
 
   function startGame(quizTypeChosen: string): void {
@@ -50,25 +52,41 @@ function App() {
         {loading ? (
           <Loading />
         ) : (
-          <>
+          <AnimatePresence mode="wait" initial={false}>
             {!gameStart && (
-              <>
+              <motion.div
+                key="intro"
+                initial={{ opacity: '0%' }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+                exit={{ opacity: 0, x: '-100%' }}
+              >
                 <Intro
                   choiceChanger={setChoice}
                   choice={choice}
                   quizInfo={quizInfo}
                   startGame={startGame}
                 />
-              </>
+              </motion.div>
             )}
             {gameStart && quizSelected && (
-              <Quiz
-                {...quizSelected}
-                resetGame={resetGame}
-                question_nb={QUESTIONS_NB}
-              />
+              <motion.div
+                key="quiz"
+                initial={{ opacity: 0, x: '100%' }}
+                animate={{
+                  opacity: 1,
+                  x: '00%'
+                }}
+                transition={{ duration: 0.2, ease: 'easeOut' }}
+              >
+                <Quiz
+                  {...quizSelected}
+                  resetGame={resetGame}
+                  question_nb={QUESTIONS_NB}
+                />
+              </motion.div>
             )}
-          </>
+          </AnimatePresence>
         )}
       </div>
     </main>

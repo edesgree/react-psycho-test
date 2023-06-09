@@ -1,4 +1,5 @@
 import { IntroProps } from '../interface';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Intro = (props: IntroProps): JSX.Element => {
   // set user choice on click
@@ -31,17 +32,19 @@ const Intro = (props: IntroProps): JSX.Element => {
   });
 
   return (
-    <div>
-      <p>Let's find out who you really are!</p>
-      <ul className="quiz-selection-list">{quizTitlesElements}</ul>
-      <button
-        className={`${props.choice === undefined ? 'disabled' : ''} primary`}
-        disabled={props.choice === undefined}
-        onClick={handleStart}
-      >
-        Start Quiz
-      </button>
-    </div>
+    <AnimatePresence>
+      <motion.div>
+        <p>Let's find out who you really are!</p>
+        <ul className="quiz-selection-list">{quizTitlesElements}</ul>
+        <button
+          className={`${props.choice === undefined ? 'disabled' : ''} primary`}
+          disabled={props.choice === undefined}
+          onClick={handleStart}
+        >
+          Start Quiz
+        </button>
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

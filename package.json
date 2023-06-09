@@ -23,8 +23,9 @@
     "eslint": "^8.38.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.3.4",
+    "framer-motion": "^10.12.16",
+    "sass": "^1.57.1",
     "typescript": "^5.0.2",
-    "vite": "^4.3.9",
-    "sass": "^1.57.1"
+    "vite": "^4.3.9"
   }
 }

@@ -4,6 +4,7 @@ import Result from './Result';
 import Loading from './ui/Loading';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
+import { motion } from 'framer-motion';
 
 import {
   IsQuizProps,
@@ -174,7 +175,7 @@ const Quiz: React.FC<IsQuizProps> = ({
           {!quizCompleted && (
             <div className="quiz-questions">{questionsElements}</div>
           )}
-          <footer className="quiz-footer">
+          <motion.footer className="quiz-footer">
             {!quizCompleted && (
               <>
                 {questionsRemaining && (
@@ -186,14 +187,18 @@ const Quiz: React.FC<IsQuizProps> = ({
               </>
             )}
             {quizCompleted && (
-              <div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+              >
                 {resultsElements}
                 <button className="primary" onClick={handleRestart}>
                   Start new test
                 </button>
-              </div>
+              </motion.div>
             )}
-          </footer>
+          </motion.footer>
         </>
       )}
     </section>
