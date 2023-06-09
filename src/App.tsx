@@ -7,7 +7,6 @@ import { IsQuiz } from './interface';
 function App() {
   const [gameStart, setGameStart] = React.useState<boolean>(false);
   const [quizInfo, setQuizInfo] = React.useState<IsQuiz[]>();
-  const [quizTitles, setQuizTitles] = React.useState<JSX.Element[]>();
   const [quizSelected, setQuizSelected] = React.useState<IsQuiz>();
   const [choice, setChoice] = React.useState<string | undefined>();
 
@@ -65,7 +64,18 @@ function App() {
             </>
           )}
           {gameStart && quizSelected && (
-            <Quiz quizSelected={quizSelected} resetGame={resetGame} />
+            <Quiz
+              /*  
+            quiz_type={quizSelected.quiz_type}
+              quiz_title={quizSelected.quiz_title}
+              quiz_icon={quizSelected.quiz_icon}
+              questions={quizSelected.questions}
+              results={quizSelected.results}
+              points={quizSelected.points}
+              */
+              {...quizSelected}
+              resetGame={resetGame}
+            />
           )}
         </>
       )}

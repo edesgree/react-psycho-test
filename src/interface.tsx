@@ -31,7 +31,6 @@ export interface IsQuestion {
   options: IsOption[];
 }
 export interface IsQuizProps extends IsQuiz {
-  quizSelected?: IsQuiz;
   resetGame: () => void;
 }
 export interface IsQuiz {

@@ -22,8 +22,9 @@ const Question: React.FC<IsQuestionProps> = (props) => {
 
   React.useEffect(() => {
     // update quiz object with choice each time the choice state is changed
-
-    props.updateUserChoice(props.id, choice);
+    if (choice !== undefined) {
+      props.updateUserChoice(props.id, choice);
+    }
   }, [choice]);
 
   const answersElements = props.options?.map((answer) => {
@@ -31,7 +32,7 @@ const Question: React.FC<IsQuestionProps> = (props) => {
     function getButtonStyle(): string {
       let style = '';
       if (!props.quiz_completed) {
-        if (answer.option === choice?.option) {
+        if (choice && answer.option === choice.option) {
           style = 'active';
         }
       } else {

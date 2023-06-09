@@ -2,8 +2,7 @@ import { IsResult } from '../interface';
 
 const Result = (props: IsResult) => {
   return (
-    <div>
-      {/*<p>{props.category}</p>*/}
+    <div data-category={props.category}>
       <p className="title">
         <span>You are </span>
         {props.title}

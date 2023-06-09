@@ -14,7 +14,9 @@ import {
   IsResult
 } from '../interface';
 
-const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
+const Quiz: React.FC<IsQuizProps> = ({ resetGame, ...quizSelected }) => {
+  const { quiz_title, quiz_icon, questions, results, points } = quizSelected;
+
   console.log('quizSelected', quizSelected);
   const [quizData, setQuizData] = React.useState<IsQuizData[]>([]);
   const [loading, setLoading] = React.useState<boolean>(true);
@@ -29,23 +31,18 @@ const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
   }, [loading]);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
-    const nbQuestions: number | undefined = Math.min(
-      3,
-      quizSelected.questions.length
-    );
+    const nbQuestions: number | undefined = Math.min(3, questions.length);
     const fetchQuizData = () => {
       // store question data in a custom object
       const customData: IsQuizData[] = [];
-      quizSelected?.questions
-        .slice(0, nbQuestions)
-        .forEach((item: IsQuestion) => {
-          customData.push({
-            id: nanoid(),
-            options: randomizeAnswers(item.options),
-            question: decode(item.question),
-            user_choice: null
-          });
+      questions.slice(0, nbQuestions).forEach((item: IsQuestion) => {
+        customData.push({
+          id: nanoid(),
+          options: randomizeAnswers(item.options),
+          question: decode(item.question),
+          user_choice: null
         });
+      });
       // set Quiz Data with this custom object
       setQuizData(customData);
       setLoading(false);
@@ -77,11 +74,9 @@ const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
     quizData.forEach((question) => {
       console.log('question', question);
       // assign points for each category
-      for (let i = 0; i < quizSelected.points?.length; i++) {
-        if (
-          question.user_choice?.category === quizSelected.points[i]?.category
-        ) {
-          currentScore[i].point += quizSelected.points[i]?.point;
+      for (let i = 0; i < points?.length; i++) {
+        if (question.user_choice?.category === points[i]?.category) {
+          currentScore[i].point += points[i]?.point;
         }
       }
       // check if all questions have been answered
@@ -143,6 +138,7 @@ const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
     );
   });
   // total score rendering
+  /*
   const totalScoreElements = totalScore?.map((item) => {
     return (
       <div key={nanoid()}>
@@ -152,12 +148,12 @@ const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
       </div>
     );
   });
-
+*/
   // your personal score rendering
   const totalScoreSorted = totalScore?.sort((a, b) => b.point - a.point)[0];
 
   // results text rendering
-  const resultsElements = quizSelected.results
+  const resultsElements = results
     ?.filter((cat: IsResult) => cat.category === totalScoreSorted?.category)
     .map((item: IsResult) => {
       return (
@@ -180,10 +176,10 @@ const Quiz: React.FC<IsQuizProps> = ({ quizSelected, resetGame }) => {
           <img
             className="img-responsive"
             width={100}
-            src={`img/${quizSelected.quiz_icon}`}
-            alt={quizSelected.quiz_title}
+            src={`img/${quiz_icon}`}
+            alt={quiz_title}
           />
-          <h2>{quizSelected.quiz_title}</h2>
+          <h2>{quiz_title}</h2>
           {!quizCompleted && (
             <div className="quiz-questions">{questionsElements}</div>
           )}
