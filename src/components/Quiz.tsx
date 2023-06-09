@@ -121,6 +121,7 @@ const Quiz: React.FC<IsQuizProps> = ({
     setGameStartCount((prevCount) => prevCount + 1);
     resetGame();
   }
+
   // update quizData to show what the user chose
   function updateUserChoice(id: string, choice: IsOption) {
     setQuizData((prevQuizData) =>
@@ -130,6 +131,7 @@ const Quiz: React.FC<IsQuizProps> = ({
     );
     console.log('quizData after user choice', quizData);
   }
+
   // question elements rendering
   const questionsElements = quizData.map((item: IsQuizData) => {
     return (
