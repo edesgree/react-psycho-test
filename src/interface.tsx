@@ -6,7 +6,7 @@ export interface IntroProps {
   choiceChanger: (choice: string | undefined) => void;
 }
 export interface IsQuestionProps extends IsQuestion {
-  id: string | Index;
+  id: string;
   index: number;
   user_choice: IsOption | null;
   quiz_completed: boolean;

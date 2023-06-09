@@ -70,24 +70,12 @@ const Quiz: React.FC<IsQuizProps> = ({
       );
     });
     setAllAnswered(isAllAnswered);
-    console.log('allAnswered', allAnswered);
+
     return isAllAnswered;
-    /*
-    quizData.forEach((question) => {
-      let count = quizData.length;
-      if (question.user_choice !== undefined && question.user_choice !== null) {
-        setAllAnswered(true);
-      } else {
-        count--;
-      }
-      console.log('question not answered:', count);
-    });
-
-    setAllAnswered(true);
-    console.log('all questions have been answered!');
-    */
   }
-
+  React.useEffect(() => {
+    console.log('allAnswered', allAnswered);
+  }, [allAnswered]);
   // add the points for each category, check if all questions have been answered
   function handleFinalCheck(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();

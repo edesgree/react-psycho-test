@@ -36,7 +36,7 @@ const Question: React.FC<IsQuestionProps> = (props) => {
     };
 
     if (!props.last) {
-      scroller.scrollTo((props.index + 1).toString(), animParams);
+      scroller.scrollTo(props.index + 1, animParams);
     } else {
       // scroll to the bottom of the page
       scroll.scrollToBottom(animParams);
@@ -83,11 +83,10 @@ const Question: React.FC<IsQuestionProps> = (props) => {
     );
   });
   return (
-    <motion.div className="question" id={props.index}>
-      {props.last && 'i am the last question'}
+    <div className="question" id={props.index.toString()}>
       <h3 className="question-title">{props.question}</h3>
       <div className="question-answers">{answersElements}</div>
-    </motion.div>
+    </div>
   );
 };
 export default Question;
