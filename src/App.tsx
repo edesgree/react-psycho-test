@@ -47,25 +47,26 @@ function App() {
   return (
     <main className="App">
       <header>
-        <h1>Psy test</h1>
+        <h1>Psychologeek</h1>
       </header>
-      {loading ? (
-        <Loading />
-      ) : (
-        <>
-          {!gameStart && (
-            <>
-              <Intro
-                choiceChanger={setChoice}
-                choice={choice}
-                quizInfo={quizInfo}
-                startGame={startGame}
-              />
-            </>
-          )}
-          {gameStart && quizSelected && (
-            <Quiz
-              /*  
+      <div className="content">
+        {loading ? (
+          <Loading />
+        ) : (
+          <>
+            {!gameStart && (
+              <>
+                <Intro
+                  choiceChanger={setChoice}
+                  choice={choice}
+                  quizInfo={quizInfo}
+                  startGame={startGame}
+                />
+              </>
+            )}
+            {gameStart && quizSelected && (
+              <Quiz
+                /*  
             quiz_type={quizSelected.quiz_type}
               quiz_title={quizSelected.quiz_title}
               quiz_icon={quizSelected.quiz_icon}
@@ -73,13 +74,14 @@ function App() {
               results={quizSelected.results}
               points={quizSelected.points}
               */
-              {...quizSelected}
-              resetGame={resetGame}
-              question_nb={QUESTIONS_NB}
-            />
-          )}
-        </>
-      )}
+                {...quizSelected}
+                resetGame={resetGame}
+                question_nb={QUESTIONS_NB}
+              />
+            )}
+          </>
+        )}
+      </div>
     </main>
   );
 }
