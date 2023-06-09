@@ -2,7 +2,6 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import { decode } from 'html-entities';
 import { IsQuestionProps, IsOption } from '../interface';
-import { motion, useViewportScroll } from 'framer-motion';
 
 import { animateScroll as scroll, scroller } from 'react-scroll';
 
