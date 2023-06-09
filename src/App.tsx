@@ -11,7 +11,7 @@ function App() {
   const [quizSelected, setQuizSelected] = React.useState<IsQuiz>();
   const [choice, setChoice] = React.useState<string | undefined>();
   const [loading, setLoading] = React.useState<boolean>(true);
-  const QUESTIONS_NB = 2;
+  const QUESTIONS_NB = 6;
   const APP_TITLE = 'Mind Quiz';
 
   function startGame(quizTypeChosen: string): void {

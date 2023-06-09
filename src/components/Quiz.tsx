@@ -28,7 +28,7 @@ const Quiz: React.FC<IsQuizProps> = ({
     React.useState<boolean>(false);
   const [gameStartCount, setGameStartCount] = React.useState<number>(0);
   const [totalScore, setTotalScore] = React.useState<IsPoint[]>();
-
+  const [allAnswered, setAllAnswered] = React.useState<boolean>(false);
   // each time GameStartCount is updated, a new quiz is rendered with score reset
   React.useEffect(() => {
     const nbQuestions: number | undefined = Math.min(
@@ -61,12 +61,36 @@ const Quiz: React.FC<IsQuizProps> = ({
   const randomizeAnswers = (arr: IsOption[]): IsOption[] =>
     arr.sort(() => Math.random() - 0.5);
 
+  // check if all questions have been answered
+  function checkAllAnswered() {
+    //check if all questions have been answered using every
+    const isAllAnswered = quizData.every((question) => {
+      return (
+        question.user_choice !== undefined && question.user_choice !== null
+      );
+    });
+    setAllAnswered(isAllAnswered);
+    console.log('allAnswered', allAnswered);
+    return isAllAnswered;
+    /*
+    quizData.forEach((question) => {
+      let count = quizData.length;
+      if (question.user_choice !== undefined && question.user_choice !== null) {
+        setAllAnswered(true);
+      } else {
+        count--;
+      }
+      console.log('question not answered:', count);
+    });
+
+    setAllAnswered(true);
+    console.log('all questions have been answered!');
+    */
+  }
+
   // add the points for each category, check if all questions have been answered
   function handleFinalCheck(event: React.MouseEvent<HTMLButtonElement>) {
     event.preventDefault();
-
-    // check if all questions have been answered
-    let allAnswered = true;
 
     const currentScore: IsPoint[] = [
       { category: 'A', point: 0 },
@@ -81,24 +105,21 @@ const Quiz: React.FC<IsQuizProps> = ({
           currentScore[i].point += points[i]?.point;
         }
       }
-      // check if all questions have been answered
-      if (question.user_choice === undefined || question.user_choice === null) {
-        allAnswered = false;
-        console.log('question not answered', question);
-      }
-      console.log('currentScore', currentScore);
-      console.log('score A', currentScore[0].point);
-      console.log('score B', currentScore[1].point);
-      console.log('score C', currentScore[2].point);
-      console.log('score D', currentScore[3].point);
+
+      console.log(` score A: ${currentScore[0].point} score B: ${currentScore[1].point} score C: ${currentScore[2].point} score D: ${currentScore[3].point} 
+      `);
     });
+    checkAllAnswered();
     console.log('allAnswered', allAnswered);
-    if (!allAnswered) {
+    // if questions are remaining, display error message
+    if (!checkAllAnswered()) {
       console.log('Please answer all questions');
       setQuestionsRemaining(true);
       return;
     }
+
     setQuizCompleted(true);
+    console.log('quizCompleted', quizCompleted);
     // update score
     setTotalScore(currentScore);
   }
@@ -127,16 +148,20 @@ const Quiz: React.FC<IsQuizProps> = ({
   }
 
   // question elements rendering
-  const questionsElements = quizData.map((item: IsQuizData) => {
+  const questionsElements = quizData.map((item: IsQuizData, index: number) => {
     return (
       <Question
         key={item.id}
         id={item.id}
+        index={index}
         question={item.question}
         options={item.options}
         updateUserChoice={updateUserChoice}
         user_choice={item.user_choice}
         quiz_completed={quizCompleted}
+        allAnswered={allAnswered}
+        checkAllAnswered={checkAllAnswered}
+        last={index === quizData.length - 1 ? true : false}
       />
     );
   });
@@ -181,7 +206,13 @@ const Quiz: React.FC<IsQuizProps> = ({
                 {questionsRemaining && (
                   <p className="error">Please answer all questions</p>
                 )}
-                <button className="primary" onClick={handleFinalCheck}>
+                <button
+                  className="primary" /*
+                  className={`${!allAnswered ? 'disabled' : ''} primary`}
+                  disabled={!allAnswered}
+                  */
+                  onClick={handleFinalCheck}
+                >
                   Check your results
                 </button>
               </>

@@ -1,16 +1,19 @@
+export type Index = number;
 export interface IntroProps {
   startGame: (quizTypeChosen: string) => void;
   quizInfo?: IsQuiz[];
   choice?: string | undefined;
   choiceChanger: (choice: string | undefined) => void;
 }
-export interface IsQuestionProps {
-  id: string;
-  question: string;
+export interface IsQuestionProps extends IsQuestion {
+  id: string | Index;
+  index: number;
   user_choice: IsOption | null;
-  options: IsOption[];
   quiz_completed: boolean;
   updateUserChoice: (id: string, choice: IsOption) => void;
+  allAnswered: boolean;
+  last: boolean;
+  checkAllAnswered: () => boolean;
 }
 export interface IsData {
   quiz_title: string;

@@ -190,7 +190,7 @@ body {
         span{
           display: block;
           flex:1;
-          padding: 20px;
+          padding: 10px 20px;
           text-align: center;
         }
       }
@@ -235,4 +235,8 @@ body {
     stroke-dasharray: 100 150;
     stroke-dashoffset: -140;
   }
+}
+
+footer{
+  margin-top: 100px;
 }
