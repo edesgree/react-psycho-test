@@ -19,7 +19,12 @@ function App() {
   }
   function resetGame(): void {
     setGameStart(false);
+
+    // reset quiz selected and choice
     setQuizSelected(undefined);
+    setChoice(undefined);
+
+    console.log('quizSelected', quizSelected);
   }
 
   //grab data from data/data.json file
